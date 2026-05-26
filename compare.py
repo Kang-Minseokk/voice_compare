@@ -7,8 +7,9 @@
 각 분석기는 analyzers/base.py의 인터페이스를 따른다.
 """
 
+import json
 from dataclasses import dataclass
-from typing import Dict
+from typing import Any, Dict, List
 
 from alignment import Alignment, align
 from analyzers import energy, formants, mfcc_dtw, pitch, vot
@@ -50,6 +51,101 @@ def compare(gt_path: str, sample_path: str, text: str) -> CompareResult:
         gt_alignment=gt_alignment,
         sample_alignment=sample_alignment,
     )
+
+
+def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
+    """분석 결과를 사용자 노출용 rule-based 피드백으로 변환."""
+    analyzers = result.analyzers
+    formants_score = analyzers.get("formants").score if "formants" in analyzers else None
+    mfcc_score = analyzers.get("mfcc_dtw").score if "mfcc_dtw" in analyzers else None
+    pitch_score = analyzers.get("pitch").score if "pitch" in analyzers else None
+    energy_score = analyzers.get("energy").score if "energy" in analyzers else None
+    vot_score = analyzers.get("vot").score if "vot" in analyzers else None
+
+    prosody_issue = (
+        pitch_score is not None
+        and energy_score is not None
+        and ((pitch_score < 0.45 and energy_score < 0.45) or pitch_score < 0.35)
+    )
+    segmental_issue = (
+        formants_score is not None
+        and mfcc_score is not None
+        and (formants_score < 0.45 or mfcc_score < 0.42)
+    )
+
+    summary = (
+        "말의 높낮이와 힘 조절에 오류가 있습니다. 이번에는 발음 자체보다 말투(리듬)를 먼저 고치는 것이 좋습니다."
+        if prosody_issue
+        else "발음과 말투를 함께 조금씩 다듬으면 전체 점수를 더 안정적으로 올릴 수 있습니다."
+    )
+
+    diagnosis: List[str] = []
+    if prosody_issue:
+        diagnosis.append(
+            "문장 전체의 높낮이와 힘의 흐름이 기준 음성과 다르게 나왔습니다."
+        )
+    if segmental_issue:
+        diagnosis.append(
+            "일부 글자 소리(특히 모음)가 기준 음성과 다르게 들립니다."
+        )
+
+    pitch_details = analyzers.get("pitch").details if "pitch" in analyzers else {}
+    gt_tail = pitch_details.get("gt_tail_slope_st_per_sec")
+    sample_tail = pitch_details.get("sample_tail_slope_st_per_sec")
+    if gt_tail is not None and sample_tail is not None:
+        diagnosis.append(
+            "문장 끝부분에서 목소리가 내려가거나 올라가는 방식이 기준 음성과 차이가 있습니다."
+        )
+
+    vot_details = analyzers.get("vot").details if "vot" in analyzers else {}
+    stop_count = int(vot_details.get("stop_count", 0))
+    valid_count = int(vot_details.get("valid_count", 0))
+    if stop_count > 0 and valid_count < max(2, stop_count // 2):
+        diagnosis.append(
+            "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 참고용으로만 보는 것이 좋습니다."
+        )
+
+    coaching: List[str] = []
+    if prosody_issue:
+        coaching.append(
+            "문장 뒤로 갈수록 목소리가 너무 떨어지지 않게, 높낮이를 조금 더 살려서 말해보세요."
+        )
+        coaching.append(
+            "힘이 빠진 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요."
+        )
+    if segmental_issue:
+        coaching.append(
+            "점수가 낮은 글자 소리를 골라, 입모양을 분명히 하면서 천천히 반복 연습해보세요."
+        )
+    if stop_count > 0 and valid_count < max(2, stop_count // 2):
+        coaching.append(
+            "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복해 연습하면 더 정확하게 교정할 수 있습니다."
+        )
+    if not coaching:
+        coaching.append("현재 패턴을 유지하면서 낮은 점수 음절만 선택적으로 교정해 보세요.")
+
+    return {
+        "summary": summary,
+        "diagnosis": diagnosis,
+        "coaching": coaching,
+        "scores": {
+            "overall": round(result.overall_score, 3),
+            "formants": round(formants_score, 3) if formants_score is not None else None,
+            "mfcc_dtw": round(mfcc_score, 3) if mfcc_score is not None else None,
+            "pitch": round(pitch_score, 3) if pitch_score is not None else None,
+            "energy": round(energy_score, 3) if energy_score is not None else None,
+            "vot": round(vot_score, 3) if vot_score is not None else None,
+        },
+        "confidence": {
+            "vot_valid_count": valid_count,
+            "vot_stop_count": stop_count,
+            "vot_confidence": (
+                "low"
+                if stop_count > 0 and valid_count < max(2, stop_count // 2)
+                else "medium"
+            ),
+        },
+    }
 
 
 def _fmt_hz(v):
@@ -157,3 +253,7 @@ if __name__ == "__main__":
         print(f"  metric: {ar.details.get('metric', '')}")
         _PRINTERS.get(name, lambda a: None)(ar)
         print()
+
+    feedback = _build_user_feedback(result)
+    print("=== User Feedback (JSON) ===")
+    print(json.dumps(feedback, ensure_ascii=False, indent=2))
