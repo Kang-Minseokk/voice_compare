@@ -7,11 +7,13 @@
 각 분석기는 analyzers/base.py의 인터페이스를 따른다.
 """
 
+import argparse
 import json
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Dict, List
 
-from alignment import Alignment, align
+from alignment import Alignment, align, alignment_from_textgrid
 from analyzers import energy, formants, mfcc_dtw, pitch, vot
 from analyzers.base import AnalyzerResult
 from audio_utils import load_audio
@@ -23,17 +25,61 @@ class CompareResult:
     analyzers: Dict[str, AnalyzerResult]
     gt_alignment: Alignment
     sample_alignment: Alignment
+    alignment_backend_requested: str
+    alignment_backend_used: str
+    alignment_confidence: str
+    warnings: List[str]
 
 
 ENABLED_ANALYZERS = [formants, mfcc_dtw, pitch, energy, vot]
 
 
-def compare(gt_path: str, sample_path: str, text: str) -> CompareResult:
+def _mfa_textgrid_for_audio(audio_path: str, mfa_textgrid_dir: str) -> str:
+    stem = Path(audio_path).stem
+    tg = Path(mfa_textgrid_dir) / f"{stem}.TextGrid"
+    return str(tg)
+
+
+def compare(
+    gt_path: str,
+    sample_path: str,
+    text: str,
+    align_backend: str = "wav2vec2",
+    mfa_textgrid_dir: str = "mfa_work/output",
+    fail_on_mfa_error: bool = False,
+) -> CompareResult:
     gt_audio = load_audio(gt_path)
     sample_audio = load_audio(sample_path)
+    warnings: List[str] = []
+    backend_requested = align_backend
+    backend_used = align_backend
 
-    gt_alignment = align(gt_audio, text)
-    sample_alignment = align(sample_audio, text)
+    if align_backend == "mfa":
+        try:
+            gt_tg = _mfa_textgrid_for_audio(gt_path, mfa_textgrid_dir)
+            sample_tg = _mfa_textgrid_for_audio(sample_path, mfa_textgrid_dir)
+            if not Path(gt_tg).exists() or not Path(sample_tg).exists():
+                raise FileNotFoundError(
+                    f"MFA TextGrid not found (gt={gt_tg}, sample={sample_tg})"
+                )
+            gt_alignment = alignment_from_textgrid(gt_tg, text=text)
+            sample_alignment = alignment_from_textgrid(sample_tg, text=text)
+        except Exception as e:
+            if fail_on_mfa_error:
+                raise RuntimeError(
+                    "MFA 정렬 실패로 중단했습니다. "
+                    f"(원인: {type(e).__name__}: {e})"
+                ) from e
+            backend_used = "wav2vec2"
+            warnings.append(
+                "MFA 정렬을 사용할 수 없어 wav2vec2 정렬로 자동 전환했습니다: "
+                f"{type(e).__name__}: {e}"
+            )
+            gt_alignment = align(gt_audio, text)
+            sample_alignment = align(sample_audio, text)
+    else:
+        gt_alignment = align(gt_audio, text)
+        sample_alignment = align(sample_audio, text)
 
     results = {}
     for module in ENABLED_ANALYZERS:
@@ -44,12 +90,29 @@ def compare(gt_path: str, sample_path: str, text: str) -> CompareResult:
 
     scores = [r.score for r in results.values()]
     overall = sum(scores) / len(scores) if scores else 0.0
+    target_syllables = len([ch for ch in text if ch != " "])
+    aligned_syllables = min(len(gt_alignment.spans), len(sample_alignment.spans))
+    if warnings:
+        alignment_confidence = "low"
+    elif target_syllables == 0:
+        alignment_confidence = "low"
+    elif aligned_syllables < target_syllables:
+        warnings.append(
+            f"정렬된 음절 수({aligned_syllables})가 입력 텍스트 음절 수({target_syllables})보다 적습니다."
+        )
+        alignment_confidence = "medium"
+    else:
+        alignment_confidence = "high"
 
     return CompareResult(
         overall_score=overall,
         analyzers=results,
         gt_alignment=gt_alignment,
         sample_alignment=sample_alignment,
+        alignment_backend_requested=backend_requested,
+        alignment_backend_used=backend_used,
+        alignment_confidence=alignment_confidence,
+        warnings=warnings,
     )
 
 
@@ -74,19 +137,19 @@ def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
     )
 
     summary = (
-        "말의 높낮이와 힘 조절에 오류가 있습니다. 이번에는 발음 자체보다 말투(리듬)를 먼저 고치는 것이 좋습니다."
+        "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다."
         if prosody_issue
-        else "발음과 말투를 함께 조금씩 다듬으면 전체 점수를 더 안정적으로 올릴 수 있습니다."
+        else "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다."
     )
 
     diagnosis: List[str] = []
     if prosody_issue:
         diagnosis.append(
-            "문장 전체의 높낮이와 힘의 흐름이 기준 음성과 다르게 나왔습니다."
+            "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다."
         )
     if segmental_issue:
         diagnosis.append(
-            "일부 글자 소리(특히 모음)가 기준 음성과 다르게 들립니다."
+            "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다."
         )
 
     pitch_details = analyzers.get("pitch").details if "pitch" in analyzers else {}
@@ -94,7 +157,7 @@ def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
     sample_tail = pitch_details.get("sample_tail_slope_st_per_sec")
     if gt_tail is not None and sample_tail is not None:
         diagnosis.append(
-            "문장 끝부분에서 목소리가 내려가거나 올라가는 방식이 기준 음성과 차이가 있습니다."
+            "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다."
         )
 
     vot_details = analyzers.get("vot").details if "vot" in analyzers else {}
@@ -102,30 +165,36 @@ def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
     valid_count = int(vot_details.get("valid_count", 0))
     if stop_count > 0 and valid_count < max(2, stop_count // 2):
         diagnosis.append(
-            "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 참고용으로만 보는 것이 좋습니다."
+            "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
         )
 
     coaching: List[str] = []
     if prosody_issue:
         coaching.append(
-            "문장 뒤로 갈수록 목소리가 너무 떨어지지 않게, 높낮이를 조금 더 살려서 말해보세요."
+            "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요."
         )
         coaching.append(
-            "힘이 빠진 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요."
+            "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요."
         )
     if segmental_issue:
         coaching.append(
-            "점수가 낮은 글자 소리를 골라, 입모양을 분명히 하면서 천천히 반복 연습해보세요."
+            "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
         )
     if stop_count > 0 and valid_count < max(2, stop_count // 2):
         coaching.append(
-            "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복해 연습하면 더 정확하게 교정할 수 있습니다."
+            "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
         )
     if not coaching:
         coaching.append("현재 패턴을 유지하면서 낮은 점수 음절만 선택적으로 교정해 보세요.")
 
     return {
         "summary": summary,
+        "alignment": {
+            "requested_backend": result.alignment_backend_requested,
+            "used_backend": result.alignment_backend_used,
+            "confidence": result.alignment_confidence,
+            "warnings": result.warnings,
+        },
         "diagnosis": diagnosis,
         "coaching": coaching,
         "scores": {
@@ -241,12 +310,45 @@ _PRINTERS = {
 
 
 if __name__ == "__main__":
-    gt_sound = "hospital_0_ref.wav"
-    sample_sound = "hospital_0_real.wav"
-    text = "자꾸 배가 아프고 속이 쓰려요"
+    parser = argparse.ArgumentParser(description="Pronunciation compare CLI")
+    parser.add_argument("--gt-audio", default="hospital_0_ref.wav")
+    parser.add_argument("--sample-audio", default="hospital_0_real.wav")
+    parser.add_argument("--text", default="자꾸 배가 아프고 속이 쓰려요")
+    parser.add_argument(
+        "--align-backend",
+        default="wav2vec2",
+        choices=["wav2vec2", "mfa"],
+        help="alignment backend 선택 (기본: wav2vec2)",
+    )
+    parser.add_argument(
+        "--mfa-textgrid-dir",
+        default="mfa_work/output",
+        help="MFA TextGrid 폴더 경로 (align-backend=mfa일 때 사용)",
+    )
+    parser.add_argument(
+        "--fail-on-mfa-error",
+        action="store_true",
+        help="MFA 정렬 실패 시 fallback 하지 않고 바로 종료",
+    )
+    args = parser.parse_args()
 
-    result = compare(gt_sound, sample_sound, text)
+    result = compare(
+        args.gt_audio,
+        args.sample_audio,
+        args.text,
+        align_backend=args.align_backend,
+        mfa_textgrid_dir=args.mfa_textgrid_dir,
+        fail_on_mfa_error=args.fail_on_mfa_error,
+    )
     print(f"\n=== Overall: {result.overall_score:.3f} ===\n")
+    print(
+        f"[alignment] requested={result.alignment_backend_requested}, "
+        f"used={result.alignment_backend_used}, "
+        f"confidence={result.alignment_confidence}"
+    )
+    for w in result.warnings:
+        print(f"  warning: {w}")
+    print()
 
     for name, ar in result.analyzers.items():
         print(f"[{name}] score = {ar.score:.3f}")

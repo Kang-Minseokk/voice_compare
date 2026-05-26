@@ -5,14 +5,16 @@ hidden state, log_probs도 같이 반환해서 downstream 분석기가 재사용
 """
 
 from dataclasses import dataclass
-from typing import List, Tuple
+import re
+from pathlib import Path
+from typing import List, Optional, Tuple
 
 import torch
 import torch.nn.functional as F
 import torchaudio
 from transformers import Wav2Vec2ForCTC, Wav2Vec2Processor
 
-from audio_utils import TARGET_SR
+from audio_utils import FRAME_STRIDE_SEC, TARGET_SR
 
 
 MODEL_NAME = "kresnik/wav2vec2-large-xlsr-korean"
@@ -111,3 +113,89 @@ def align(audio: torch.Tensor, text: str) -> Alignment:
         spans.append(SyllableSpan(char=ch, start_frame=s, end_frame=e))
 
     return Alignment(spans=spans, hidden=hidden, log_probs=log_probs)
+
+
+def _sec_to_start_frame(sec: float) -> int:
+    return max(0, int(round(sec / FRAME_STRIDE_SEC)))
+
+
+def _sec_to_end_frame(sec: float) -> int:
+    # TextGrid xmax는 구간 끝(배타 경계)에 가까우므로 inclusive end로 변환.
+    return max(0, int(round(sec / FRAME_STRIDE_SEC)) - 1)
+
+
+def _extract_word_intervals(textgrid_content: str) -> List[Tuple[float, float, str]]:
+    words_tier_match = re.search(
+        r'name = "words"(.*?)(?:\n\s*item \[\d+\]:|\Z)',
+        textgrid_content,
+        flags=re.S,
+    )
+    if not words_tier_match:
+        return []
+    words_chunk = words_tier_match.group(1)
+    interval_pattern = re.compile(
+        r"intervals \[\d+\]:\s*"
+        r"xmin = ([0-9.]+)\s*"
+        r"xmax = ([0-9.]+)\s*"
+        r'text = "(.*?)"',
+        flags=re.S,
+    )
+    intervals = []
+    for m in interval_pattern.finditer(words_chunk):
+        xmin = float(m.group(1))
+        xmax = float(m.group(2))
+        text = m.group(3)
+        intervals.append((xmin, xmax, text))
+    return intervals
+
+
+def _split_word_to_syllable_spans(
+    word: str, start_frame: int, end_frame: int
+) -> List[SyllableSpan]:
+    chars = [ch for ch in word if ch != " "]
+    if not chars or end_frame < start_frame:
+        return []
+    duration = end_frame - start_frame + 1
+    spans: List[SyllableSpan] = []
+    for i, ch in enumerate(chars):
+        s = start_frame + int(i * duration / len(chars))
+        e = start_frame + int((i + 1) * duration / len(chars)) - 1
+        e = max(s, e)
+        spans.append(SyllableSpan(char=ch, start_frame=s, end_frame=e))
+    return spans
+
+
+def alignment_from_textgrid(textgrid_path: str, text: Optional[str] = None) -> Alignment:
+    """MFA TextGrid(words tier)를 기존 Alignment 포맷으로 변환.
+
+    - words tier를 읽어 단어 구간을 가져온 뒤, 단어 내부를 문자(음절) 개수로 균등 분할한다.
+    - text를 전달하면 해당 텍스트의 공백 제외 문자 순서와 길이로 최종 보정한다.
+    """
+    content = Path(textgrid_path).read_text(encoding="utf-8")
+    intervals = _extract_word_intervals(content)
+    spans: List[SyllableSpan] = []
+    for xmin, xmax, word in intervals:
+        if not word.strip():
+            continue
+        s = _sec_to_start_frame(xmin)
+        e = _sec_to_end_frame(xmax)
+        spans.extend(_split_word_to_syllable_spans(word, s, e))
+
+    if text is not None:
+        target_chars = [ch for ch in text if ch != " "]
+        n = min(len(target_chars), len(spans))
+        adjusted = []
+        for i in range(n):
+            sp = spans[i]
+            adjusted.append(
+                SyllableSpan(
+                    char=target_chars[i],
+                    start_frame=sp.start_frame,
+                    end_frame=sp.end_frame,
+                )
+            )
+        spans = adjusted
+
+    # Hidden/logits는 TextGrid 변환 경로에서는 사용하지 않으므로 empty tensor로 채움.
+    empty = torch.empty((0, 0), dtype=torch.float32)
+    return Alignment(spans=spans, hidden=empty, log_probs=empty)

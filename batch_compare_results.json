@@ -1,0 +1,1400 @@
+{
+  "root": "/home/capstoneserver1/soyoon/voice_compare",
+  "align_backend": "wav2vec2",
+  "job_count": 28,
+  "success_count": 28,
+  "precheck_errors": [],
+  "runtime_errors": [],
+  "results": [
+    {
+      "real_file": "hospital_1-1_real.wav",
+      "ref_file": "hospital_1_ref.wav",
+      "overall_score": 0.389,
+      "analyzers": {
+        "formants": 0.282,
+        "mfcc_dtw": 0.4,
+        "pitch": 0.524,
+        "energy": 0.008,
+        "vot": 0.734
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(22)가 입력 텍스트 음절 수(24)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+        ],
+        "scores": {
+          "overall": 0.389,
+          "formants": 0.282,
+          "mfcc_dtw": 0.4,
+          "pitch": 0.524,
+          "energy": 0.008,
+          "vot": 0.734
+        },
+        "confidence": {
+          "vot_valid_count": 5,
+          "vot_stop_count": 9,
+          "vot_confidence": "medium"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_1-2_real.wav",
+      "ref_file": "hospital_2_ref.wav",
+      "overall_score": 0.392,
+      "analyzers": {
+        "formants": 0.375,
+        "mfcc_dtw": 0.397,
+        "pitch": 0.463,
+        "energy": 0.029,
+        "vot": 0.696
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(23)가 입력 텍스트 음절 수(27)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+        ],
+        "scores": {
+          "overall": 0.392,
+          "formants": 0.375,
+          "mfcc_dtw": 0.397,
+          "pitch": 0.463,
+          "energy": 0.029,
+          "vot": 0.696
+        },
+        "confidence": {
+          "vot_valid_count": 5,
+          "vot_stop_count": 9,
+          "vot_confidence": "medium"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_1-3_real.wav",
+      "ref_file": "hospital_3_ref.wav",
+      "overall_score": 0.327,
+      "analyzers": {
+        "formants": 0.303,
+        "mfcc_dtw": 0.381,
+        "pitch": 0.556,
+        "energy": 0.011,
+        "vot": 0.383
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(31)가 입력 텍스트 음절 수(34)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+        ],
+        "scores": {
+          "overall": 0.327,
+          "formants": 0.303,
+          "mfcc_dtw": 0.381,
+          "pitch": 0.556,
+          "energy": 0.011,
+          "vot": 0.383
+        },
+        "confidence": {
+          "vot_valid_count": 5,
+          "vot_stop_count": 11,
+          "vot_confidence": "medium"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_1-4_real.wav",
+      "ref_file": "hospital_4_ref.wav",
+      "overall_score": 0.194,
+      "analyzers": {
+        "formants": 0.177,
+        "mfcc_dtw": 0.39,
+        "pitch": 0.236,
+        "energy": 0.0,
+        "vot": 0.165
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(5)가 입력 텍스트 음절 수(6)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
+          "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.194,
+          "formants": 0.177,
+          "mfcc_dtw": 0.39,
+          "pitch": 0.236,
+          "energy": 0.0,
+          "vot": 0.165
+        },
+        "confidence": {
+          "vot_valid_count": 1,
+          "vot_stop_count": 2,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_2-1_real.wav",
+      "ref_file": "hospital_1_ref.wav",
+      "overall_score": 0.38,
+      "analyzers": {
+        "formants": 0.311,
+        "mfcc_dtw": 0.398,
+        "pitch": 0.521,
+        "energy": 0.01,
+        "vot": 0.66
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(22)가 입력 텍스트 음절 수(24)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+        ],
+        "scores": {
+          "overall": 0.38,
+          "formants": 0.311,
+          "mfcc_dtw": 0.398,
+          "pitch": 0.521,
+          "energy": 0.01,
+          "vot": 0.66
+        },
+        "confidence": {
+          "vot_valid_count": 5,
+          "vot_stop_count": 9,
+          "vot_confidence": "medium"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_2-2_real.wav",
+      "ref_file": "hospital_2_ref.wav",
+      "overall_score": 0.336,
+      "analyzers": {
+        "formants": 0.464,
+        "mfcc_dtw": 0.413,
+        "pitch": 0.578,
+        "energy": 0.021,
+        "vot": 0.206
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(23)가 입력 텍스트 음절 수(27)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.336,
+          "formants": 0.464,
+          "mfcc_dtw": 0.413,
+          "pitch": 0.578,
+          "energy": 0.021,
+          "vot": 0.206
+        },
+        "confidence": {
+          "vot_valid_count": 2,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_2-3_real.wav",
+      "ref_file": "hospital_3_ref.wav",
+      "overall_score": 0.375,
+      "analyzers": {
+        "formants": 0.421,
+        "mfcc_dtw": 0.4,
+        "pitch": 0.569,
+        "energy": 0.012,
+        "vot": 0.472
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(31)가 입력 텍스트 음절 수(34)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+        ],
+        "scores": {
+          "overall": 0.375,
+          "formants": 0.421,
+          "mfcc_dtw": 0.4,
+          "pitch": 0.569,
+          "energy": 0.012,
+          "vot": 0.472
+        },
+        "confidence": {
+          "vot_valid_count": 7,
+          "vot_stop_count": 11,
+          "vot_confidence": "medium"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_2-4_real.wav",
+      "ref_file": "hospital_4_ref.wav",
+      "overall_score": 0.353,
+      "analyzers": {
+        "formants": 0.149,
+        "mfcc_dtw": 0.389,
+        "pitch": 0.228,
+        "energy": 0.0,
+        "vot": 1.0
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(5)가 입력 텍스트 음절 수(6)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
+          "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.353,
+          "formants": 0.149,
+          "mfcc_dtw": 0.389,
+          "pitch": 0.228,
+          "energy": 0.0,
+          "vot": 1.0
+        },
+        "confidence": {
+          "vot_valid_count": 1,
+          "vot_stop_count": 2,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_3-1_real.wav",
+      "ref_file": "hospital_1_ref.wav",
+      "overall_score": 0.379,
+      "analyzers": {
+        "formants": 0.37,
+        "mfcc_dtw": 0.392,
+        "pitch": 0.31,
+        "energy": 0.002,
+        "vot": 0.819
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(22)가 입력 텍스트 음절 수(24)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
+          "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.379,
+          "formants": 0.37,
+          "mfcc_dtw": 0.392,
+          "pitch": 0.31,
+          "energy": 0.002,
+          "vot": 0.819
+        },
+        "confidence": {
+          "vot_valid_count": 1,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_3-2_real.wav",
+      "ref_file": "hospital_2_ref.wav",
+      "overall_score": 0.315,
+      "analyzers": {
+        "formants": 0.299,
+        "mfcc_dtw": 0.402,
+        "pitch": 0.444,
+        "energy": 0.014,
+        "vot": 0.417
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(23)가 입력 텍스트 음절 수(27)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
+          "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.315,
+          "formants": 0.299,
+          "mfcc_dtw": 0.402,
+          "pitch": 0.444,
+          "energy": 0.014,
+          "vot": 0.417
+        },
+        "confidence": {
+          "vot_valid_count": 2,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_3-3_real.wav",
+      "ref_file": "hospital_3_ref.wav",
+      "overall_score": 0.437,
+      "analyzers": {
+        "formants": 0.397,
+        "mfcc_dtw": 0.394,
+        "pitch": 0.61,
+        "energy": 0.027,
+        "vot": 0.756
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(31)가 입력 텍스트 음절 수(34)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.437,
+          "formants": 0.397,
+          "mfcc_dtw": 0.394,
+          "pitch": 0.61,
+          "energy": 0.027,
+          "vot": 0.756
+        },
+        "confidence": {
+          "vot_valid_count": 3,
+          "vot_stop_count": 11,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_3-4_real.wav",
+      "ref_file": "hospital_4_ref.wav",
+      "overall_score": 0.133,
+      "analyzers": {
+        "formants": 0.235,
+        "mfcc_dtw": 0.387,
+        "pitch": 0.043,
+        "energy": 0.0,
+        "vot": 0.0
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(5)가 입력 텍스트 음절 수(6)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
+          "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.133,
+          "formants": 0.235,
+          "mfcc_dtw": 0.387,
+          "pitch": 0.043,
+          "energy": 0.0,
+          "vot": 0.0
+        },
+        "confidence": {
+          "vot_valid_count": 0,
+          "vot_stop_count": 2,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_4-1_real.wav",
+      "ref_file": "hospital_1_ref.wav",
+      "overall_score": 0.358,
+      "analyzers": {
+        "formants": 0.351,
+        "mfcc_dtw": 0.402,
+        "pitch": 0.555,
+        "energy": 0.031,
+        "vot": 0.451
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(22)가 입력 텍스트 음절 수(24)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.358,
+          "formants": 0.351,
+          "mfcc_dtw": 0.402,
+          "pitch": 0.555,
+          "energy": 0.031,
+          "vot": 0.451
+        },
+        "confidence": {
+          "vot_valid_count": 3,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_4-2_real.wav",
+      "ref_file": "hospital_2_ref.wav",
+      "overall_score": 0.295,
+      "analyzers": {
+        "formants": 0.282,
+        "mfcc_dtw": 0.402,
+        "pitch": 0.516,
+        "energy": 0.029,
+        "vot": 0.245
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(23)가 입력 텍스트 음절 수(27)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.295,
+          "formants": 0.282,
+          "mfcc_dtw": 0.402,
+          "pitch": 0.516,
+          "energy": 0.029,
+          "vot": 0.245
+        },
+        "confidence": {
+          "vot_valid_count": 2,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_4-3_real.wav",
+      "ref_file": "hospital_3_ref.wav",
+      "overall_score": 0.418,
+      "analyzers": {
+        "formants": 0.439,
+        "mfcc_dtw": 0.408,
+        "pitch": 0.612,
+        "energy": 0.014,
+        "vot": 0.616
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(31)가 입력 텍스트 음절 수(34)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.418,
+          "formants": 0.439,
+          "mfcc_dtw": 0.408,
+          "pitch": 0.612,
+          "energy": 0.014,
+          "vot": 0.616
+        },
+        "confidence": {
+          "vot_valid_count": 4,
+          "vot_stop_count": 11,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_4-4_real.wav",
+      "ref_file": "hospital_4_ref.wav",
+      "overall_score": 0.194,
+      "analyzers": {
+        "formants": 0.283,
+        "mfcc_dtw": 0.397,
+        "pitch": 0.289,
+        "energy": 0.0,
+        "vot": 0.0
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(5)가 입력 텍스트 음절 수(6)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
+          "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.194,
+          "formants": 0.283,
+          "mfcc_dtw": 0.397,
+          "pitch": 0.289,
+          "energy": 0.0,
+          "vot": 0.0
+        },
+        "confidence": {
+          "vot_valid_count": 0,
+          "vot_stop_count": 2,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_5-1_real.wav",
+      "ref_file": "hospital_1_ref.wav",
+      "overall_score": 0.418,
+      "analyzers": {
+        "formants": 0.368,
+        "mfcc_dtw": 0.392,
+        "pitch": 0.532,
+        "energy": 0.023,
+        "vot": 0.774
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(22)가 입력 텍스트 음절 수(24)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.418,
+          "formants": 0.368,
+          "mfcc_dtw": 0.392,
+          "pitch": 0.532,
+          "energy": 0.023,
+          "vot": 0.774
+        },
+        "confidence": {
+          "vot_valid_count": 2,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_5-2_real.wav",
+      "ref_file": "hospital_2_ref.wav",
+      "overall_score": 0.247,
+      "analyzers": {
+        "formants": 0.332,
+        "mfcc_dtw": 0.39,
+        "pitch": 0.471,
+        "energy": 0.002,
+        "vot": 0.041
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(23)가 입력 텍스트 음절 수(27)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.247,
+          "formants": 0.332,
+          "mfcc_dtw": 0.39,
+          "pitch": 0.471,
+          "energy": 0.002,
+          "vot": 0.041
+        },
+        "confidence": {
+          "vot_valid_count": 1,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_5-3_real.wav",
+      "ref_file": "hospital_3_ref.wav",
+      "overall_score": 0.363,
+      "analyzers": {
+        "formants": 0.332,
+        "mfcc_dtw": 0.384,
+        "pitch": 0.581,
+        "energy": 0.031,
+        "vot": 0.488
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(31)가 입력 텍스트 음절 수(34)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.363,
+          "formants": 0.332,
+          "mfcc_dtw": 0.384,
+          "pitch": 0.581,
+          "energy": 0.031,
+          "vot": 0.488
+        },
+        "confidence": {
+          "vot_valid_count": 4,
+          "vot_stop_count": 11,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_5-4_real.wav",
+      "ref_file": "hospital_4_ref.wav",
+      "overall_score": 0.293,
+      "analyzers": {
+        "formants": 0.325,
+        "mfcc_dtw": 0.399,
+        "pitch": 0.74,
+        "energy": 0.0,
+        "vot": 0.0
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(5)가 입력 텍스트 음절 수(6)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.293,
+          "formants": 0.325,
+          "mfcc_dtw": 0.399,
+          "pitch": 0.74,
+          "energy": 0.0,
+          "vot": 0.0
+        },
+        "confidence": {
+          "vot_valid_count": 0,
+          "vot_stop_count": 2,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_6-1_real.wav",
+      "ref_file": "hospital_1_ref.wav",
+      "overall_score": 0.399,
+      "analyzers": {
+        "formants": 0.418,
+        "mfcc_dtw": 0.416,
+        "pitch": 0.462,
+        "energy": 0.002,
+        "vot": 0.698
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(22)가 입력 텍스트 음절 수(24)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+        ],
+        "scores": {
+          "overall": 0.399,
+          "formants": 0.418,
+          "mfcc_dtw": 0.416,
+          "pitch": 0.462,
+          "energy": 0.002,
+          "vot": 0.698
+        },
+        "confidence": {
+          "vot_valid_count": 4,
+          "vot_stop_count": 9,
+          "vot_confidence": "medium"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_6-2_real.wav",
+      "ref_file": "hospital_2_ref.wav",
+      "overall_score": 0.246,
+      "analyzers": {
+        "formants": 0.267,
+        "mfcc_dtw": 0.412,
+        "pitch": 0.519,
+        "energy": 0.033,
+        "vot": 0.0
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(23)가 입력 텍스트 음절 수(27)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.246,
+          "formants": 0.267,
+          "mfcc_dtw": 0.412,
+          "pitch": 0.519,
+          "energy": 0.033,
+          "vot": 0.0
+        },
+        "confidence": {
+          "vot_valid_count": 0,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_6-3_real.wav",
+      "ref_file": "hospital_3_ref.wav",
+      "overall_score": 0.361,
+      "analyzers": {
+        "formants": 0.39,
+        "mfcc_dtw": 0.385,
+        "pitch": 0.682,
+        "energy": 0.045,
+        "vot": 0.301
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(31)가 입력 텍스트 음절 수(34)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.361,
+          "formants": 0.39,
+          "mfcc_dtw": 0.385,
+          "pitch": 0.682,
+          "energy": 0.045,
+          "vot": 0.301
+        },
+        "confidence": {
+          "vot_valid_count": 1,
+          "vot_stop_count": 11,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_6-4_real.wav",
+      "ref_file": "hospital_4_ref.wav",
+      "overall_score": 0.186,
+      "analyzers": {
+        "formants": 0.212,
+        "mfcc_dtw": 0.396,
+        "pitch": 0.322,
+        "energy": 0.0,
+        "vot": 0.0
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(5)가 입력 텍스트 음절 수(6)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
+          "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.186,
+          "formants": 0.212,
+          "mfcc_dtw": 0.396,
+          "pitch": 0.322,
+          "energy": 0.0,
+          "vot": 0.0
+        },
+        "confidence": {
+          "vot_valid_count": 0,
+          "vot_stop_count": 2,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_7-1_real.wav",
+      "ref_file": "hospital_1_ref.wav",
+      "overall_score": 0.42,
+      "analyzers": {
+        "formants": 0.42,
+        "mfcc_dtw": 0.401,
+        "pitch": 0.536,
+        "energy": 0.036,
+        "vot": 0.707
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(22)가 입력 텍스트 음절 수(24)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.42,
+          "formants": 0.42,
+          "mfcc_dtw": 0.401,
+          "pitch": 0.536,
+          "energy": 0.036,
+          "vot": 0.707
+        },
+        "confidence": {
+          "vot_valid_count": 3,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_7-2_real.wav",
+      "ref_file": "hospital_2_ref.wav",
+      "overall_score": 0.309,
+      "analyzers": {
+        "formants": 0.29,
+        "mfcc_dtw": 0.389,
+        "pitch": 0.539,
+        "energy": 0.034,
+        "vot": 0.292
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(23)가 입력 텍스트 음절 수(27)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.309,
+          "formants": 0.29,
+          "mfcc_dtw": 0.389,
+          "pitch": 0.539,
+          "energy": 0.034,
+          "vot": 0.292
+        },
+        "confidence": {
+          "vot_valid_count": 2,
+          "vot_stop_count": 9,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_7-3_real.wav",
+      "ref_file": "hospital_3_ref.wav",
+      "overall_score": 0.415,
+      "analyzers": {
+        "formants": 0.424,
+        "mfcc_dtw": 0.399,
+        "pitch": 0.602,
+        "energy": 0.013,
+        "vot": 0.639
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(31)가 입력 텍스트 음절 수(34)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.415,
+          "formants": 0.424,
+          "mfcc_dtw": 0.399,
+          "pitch": 0.602,
+          "energy": 0.013,
+          "vot": 0.639
+        },
+        "confidence": {
+          "vot_valid_count": 3,
+          "vot_stop_count": 11,
+          "vot_confidence": "low"
+        }
+      }
+    },
+    {
+      "real_file": "hospital_7-4_real.wav",
+      "ref_file": "hospital_4_ref.wav",
+      "overall_score": 0.175,
+      "analyzers": {
+        "formants": 0.237,
+        "mfcc_dtw": 0.403,
+        "pitch": 0.233,
+        "energy": 0.0,
+        "vot": 0.0
+      },
+      "alignment": {
+        "requested_backend": "wav2vec2",
+        "used_backend": "wav2vec2",
+        "confidence": "medium",
+        "warnings": [
+          "정렬된 음절 수(5)가 입력 텍스트 음절 수(6)보다 적습니다."
+        ]
+      },
+      "feedback": {
+        "summary": "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다.",
+        "alignment": {
+          "requested_backend": "wav2vec2",
+          "used_backend": "wav2vec2",
+          "confidence": "medium"
+        },
+        "diagnosis": [
+          "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+        ],
+        "coaching": [
+          "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
+          "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+        ],
+        "scores": {
+          "overall": 0.175,
+          "formants": 0.237,
+          "mfcc_dtw": 0.403,
+          "pitch": 0.233,
+          "energy": 0.0,
+          "vot": 0.0
+        },
+        "confidence": {
+          "vot_valid_count": 0,
+          "vot_stop_count": 2,
+          "vot_confidence": "low"
+        }
+      }
+    }
+  ]
+}
