@@ -1,4 +1,4 @@
-"""공용 오디오 유틸: 로딩, 샘플레이트, frame↔sample 변환, 윈도우 추출."""
+"""공용 오디오 유틸: 로딩, 경량 전처리, frame↔sample 변환, 윈도우 추출."""
 
 import numpy as np
 import torch
@@ -9,13 +9,75 @@ TARGET_SR = 16000
 FRAME_STRIDE_SEC = 0.02  # wav2vec2 base stride: 20ms / frame
 
 
-def load_audio(path: str) -> torch.Tensor:
+def _trim_silence_edges(
+    audio: np.ndarray,
+    trim_db: float = 35.0,
+    frame_ms: float = 20.0,
+    hop_ms: float = 10.0,
+    pad_ms: float = 20.0,
+) -> np.ndarray:
+    """앞/뒤 무음 구간만 잘라서 길이 편차 노이즈를 줄인다."""
+    if audio.size == 0:
+        return audio
+    frame = max(1, int(frame_ms / 1000 * TARGET_SR))
+    hop = max(1, int(hop_ms / 1000 * TARGET_SR))
+    if audio.size < frame:
+        return audio
+
+    n_steps = (audio.size - frame) // hop + 1
+    rms = np.empty(n_steps, dtype=np.float64)
+    for i in range(n_steps):
+        seg = audio[i * hop : i * hop + frame]
+        rms[i] = np.sqrt(np.mean(seg**2))
+
+    db = 20 * np.log10(rms + 1e-10)
+    max_db = float(np.max(db))
+    keep = np.where(db >= max_db - trim_db)[0]
+    if keep.size == 0:
+        return audio
+
+    pad = int(pad_ms / 1000 * TARGET_SR)
+    start = max(0, int(keep[0] * hop) - pad)
+    end = min(audio.size, int(keep[-1] * hop + frame) + pad)
+    if end <= start:
+        return audio
+    return audio[start:end]
+
+
+def _normalize_rms(audio: np.ndarray, target_rms_dbfs: float = -24.0) -> np.ndarray:
+    """RMS 기준 게인 정규화 (clip 방지 포함)."""
+    if audio.size == 0:
+        return audio
+    rms = float(np.sqrt(np.mean(audio**2)))
+    if rms < 1e-8:
+        return audio
+
+    target = float(10 ** (target_rms_dbfs / 20.0))
+    gain = target / rms
+    peak = float(np.max(np.abs(audio)) + 1e-8)
+    gain = min(gain, 0.99 / peak)
+    return audio * gain
+
+
+def load_audio(
+    path: str,
+    trim_silence: bool = True,
+    trim_db: float = 35.0,
+    target_rms_dbfs: float = -24.0,
+) -> torch.Tensor:
     waveform, sr = torchaudio.load(path)
     if waveform.size(0) > 1:
         waveform = waveform.mean(dim=0, keepdim=True)
     if sr != TARGET_SR:
         waveform = torchaudio.functional.resample(waveform, sr, TARGET_SR)
-    return waveform.squeeze(0)
+
+    audio = waveform.squeeze(0).numpy().astype(np.float32)
+    # 경량 전처리: DC 제거 -> 앞/뒤 무음 trim -> RMS 정규화
+    audio = audio - float(np.mean(audio))
+    if trim_silence:
+        audio = _trim_silence_edges(audio, trim_db=trim_db)
+    audio = _normalize_rms(audio, target_rms_dbfs=target_rms_dbfs)
+    return torch.from_numpy(audio).float()
 
 
 def frame_to_sample(frame_idx: int) -> int:

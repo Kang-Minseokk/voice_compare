@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any, Dict, List
 
 from alignment import Alignment, align, alignment_from_textgrid
-from analyzers import energy, formants, mfcc_dtw, pitch, vot
+from analyzers import coda, energy, formants, mfcc_dtw, pitch, vot
 from analyzers.base import AnalyzerResult
 from audio_utils import load_audio
 
@@ -29,9 +29,22 @@ class CompareResult:
     alignment_backend_used: str
     alignment_confidence: str
     warnings: List[str]
+    input_text: str
 
 
-ENABLED_ANALYZERS = [formants, mfcc_dtw, pitch, energy, vot]
+ENABLED_ANALYZERS = [formants, mfcc_dtw, pitch, energy, vot, coda]
+
+
+def _trimmed_mean(values: List[float], trim_ratio: float = 0.15) -> float:
+    if not values:
+        return 0.0
+    if len(values) < 5 or trim_ratio <= 0.0:
+        return float(sum(values) / len(values))
+    k = max(1, int(round(len(values) * trim_ratio)))
+    if k * 2 >= len(values):
+        return float(sum(values) / len(values))
+    xs = sorted(values)[k : len(values) - k]
+    return float(sum(xs) / len(xs))
 
 
 def _mfa_textgrid_for_audio(audio_path: str, mfa_textgrid_dir: str) -> str:
@@ -47,9 +60,23 @@ def compare(
     align_backend: str = "wav2vec2",
     mfa_textgrid_dir: str = "mfa_work/output",
     fail_on_mfa_error: bool = False,
+    trim_silence: bool = True,
+    trim_db: float = 35.0,
+    target_rms_dbfs: float = -24.0,
+    overall_trim_ratio: float = 0.15,
 ) -> CompareResult:
-    gt_audio = load_audio(gt_path)
-    sample_audio = load_audio(sample_path)
+    gt_audio = load_audio(
+        gt_path,
+        trim_silence=trim_silence,
+        trim_db=trim_db,
+        target_rms_dbfs=target_rms_dbfs,
+    )
+    sample_audio = load_audio(
+        sample_path,
+        trim_silence=trim_silence,
+        trim_db=trim_db,
+        target_rms_dbfs=target_rms_dbfs,
+    )
     warnings: List[str] = []
     backend_requested = align_backend
     backend_used = align_backend
@@ -89,7 +116,7 @@ def compare(
         results[r.name] = r
 
     scores = [r.score for r in results.values()]
-    overall = sum(scores) / len(scores) if scores else 0.0
+    overall = _trimmed_mean(scores, trim_ratio=overall_trim_ratio)
     target_syllables = len([ch for ch in text if ch != " "])
     aligned_syllables = min(len(gt_alignment.spans), len(sample_alignment.spans))
     if warnings:
@@ -113,6 +140,7 @@ def compare(
         alignment_backend_used=backend_used,
         alignment_confidence=alignment_confidence,
         warnings=warnings,
+        input_text=text,
     )
 
 
@@ -124,6 +152,7 @@ def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
     pitch_score = analyzers.get("pitch").score if "pitch" in analyzers else None
     energy_score = analyzers.get("energy").score if "energy" in analyzers else None
     vot_score = analyzers.get("vot").score if "vot" in analyzers else None
+    coda_score = analyzers.get("coda").score if "coda" in analyzers else None
 
     prosody_issue = (
         pitch_score is not None
@@ -167,6 +196,14 @@ def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
         diagnosis.append(
             "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
         )
+    coda_details = analyzers.get("coda").details if "coda" in analyzers else {}
+    coda_weakened = int(coda_details.get("weakened_count", 0))
+    coda_dropped = int(coda_details.get("dropped_count", 0))
+    coda_uncertain = int(coda_details.get("uncertain_count", 0))
+    if coda_weakened > 0 or coda_dropped > 0:
+        diagnosis.append("단어 끝소리(받침)에서 약해지는 구간이 보입니다.")
+    if coda_uncertain > 0:
+        diagnosis.append("일부 받침은 신뢰도 낮은 구간이라 참고용으로 해석했습니다.")
 
     coaching: List[str] = []
     if prosody_issue:
@@ -184,8 +221,100 @@ def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
         coaching.append(
             "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
         )
+    if coda_score is not None and coda_score < 0.55:
+        coaching.append("받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요.")
+    elif coda_weakened > 0 or coda_dropped > 0:
+        coaching.append("받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요.")
     if not coaching:
         coaching.append("현재 패턴을 유지하면서 낮은 점수 음절만 선택적으로 교정해 보세요.")
+
+    targeted_tips: List[str] = []
+    source_text = result.input_text.strip()
+
+    # 1) 음절별 formant 점수가 낮은 구간을 우선 지적
+    formant_ar = analyzers.get("formants")
+    if formant_ar and formant_ar.per_syllable:
+        low_formants = sorted(formant_ar.per_syllable, key=lambda x: x.score)[:2]
+        for ps in low_formants:
+            if ps.score <= 0.35:
+                vowel = (ps.details or {}).get("vowel")
+                if vowel in {"ㅓ", "ㅡ"}:
+                    tip = (
+                        f"'{source_text}'에서 '{ps.char}' 소리가 약해 보입니다. "
+                        "입을 조금 더 벌리고 혀를 힘 빼고 발음해 보세요."
+                    )
+                elif vowel in {"ㅗ", "ㅜ"}:
+                    tip = (
+                        f"'{source_text}'에서 '{ps.char}' 소리가 둥글게 들리지 않습니다. "
+                        "입술을 더 둥글게 모아서 발음해 보세요."
+                    )
+                else:
+                    tip = (
+                        f"'{source_text}'에서 '{ps.char}' 발음이 기준과 다릅니다. "
+                        "그 음절만 천천히 3~5번 반복해 보세요."
+                    )
+                targeted_tips.append(tip)
+
+    # 2) VOT 측정 가능한 경우: 자음 강도/거센 정도를 더 구체적으로 안내
+    vot_ar = analyzers.get("vot")
+    if vot_ar and vot_ar.per_syllable:
+        for ps in vot_ar.per_syllable:
+            d = ps.details or {}
+            gt_vot = d.get("gt_vot_ms")
+            sm_vot = d.get("sample_vot_ms")
+            init = d.get("initial")
+            if gt_vot is None or sm_vot is None or init is None:
+                continue
+            delta = sm_vot - gt_vot
+            if init in {"ㄱ", "ㄷ", "ㅂ", "ㅈ", "ㅅ"} and delta < -8:
+                targeted_tips.append(
+                    f"'{source_text}'에서 '{ps.char}'를 너무 세게 내지 말고, "
+                    "조금 더 부드럽게 발음해 보세요."
+                )
+            elif init in {"ㅋ", "ㅌ", "ㅍ", "ㅊ"} and delta < -10:
+                targeted_tips.append(
+                    f"'{source_text}'에서 '{ps.char}'는 숨을 조금 더 실어서, "
+                    "거센소리 느낌이 나게 발음해 보세요."
+                )
+
+    # 3) 종성(coda) 약화/탈락 구간을 직접 지적
+    coda_ar = analyzers.get("coda")
+    if coda_ar and coda_ar.per_syllable:
+        # dropped 우선, 없으면 weakened 중 점수가 낮은 순으로 2개까지 노출
+        dropped_first = [s for s in coda_ar.per_syllable if s.details.get("status") == "dropped"]
+        weakened_next = sorted(
+            [s for s in coda_ar.per_syllable if s.details.get("status") == "weakened"],
+            key=lambda x: x.score,
+        )
+        coda_targets = dropped_first + weakened_next
+        for ps in coda_targets[:2]:
+            coda_char = ps.details.get("coda_char", "받침")
+            status = ps.details.get("status")
+            if status == "dropped":
+                targeted_tips.append(
+                    f"'{source_text}'에서 '{ps.char}'의 받침 '{coda_char}' 소리가 거의 들리지 않습니다. "
+                    "끝소리를 조금 더 남겨서 끊어 보세요."
+                )
+            else:
+                targeted_tips.append(
+                    f"'{source_text}'에서 '{ps.char}'의 받침 '{coda_char}' 소리가 약합니다. "
+                    "끝소리를 짧고 또렷하게 마무리해 보세요."
+                )
+
+    # 4) fallback: 구체 팁이 없으면 점수가 가장 낮은 음절 1개라도 지적
+    if not targeted_tips:
+        candidates = []
+        for name in ("formants", "mfcc_dtw", "pitch", "energy", "coda"):
+            ar = analyzers.get(name)
+            if ar and ar.per_syllable:
+                low = min(ar.per_syllable, key=lambda x: x.score)
+                candidates.append(low)
+        if candidates:
+            worst = min(candidates, key=lambda x: x.score)
+            targeted_tips.append(
+                f"'{source_text}'에서 '{worst.char}' 발음이 가장 불안정합니다. "
+                "그 음절부터 천천히 또렷하게 연습해 보세요."
+            )
 
     return {
         "summary": summary,
@@ -197,6 +326,7 @@ def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
         },
         "diagnosis": diagnosis,
         "coaching": coaching,
+        "targeted_tips": targeted_tips,
         "scores": {
             "overall": round(result.overall_score, 3),
             "formants": round(formants_score, 3) if formants_score is not None else None,
@@ -204,6 +334,7 @@ def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
             "pitch": round(pitch_score, 3) if pitch_score is not None else None,
             "energy": round(energy_score, 3) if energy_score is not None else None,
             "vot": round(vot_score, 3) if vot_score is not None else None,
+            "coda": round(coda_score, 3) if coda_score is not None else None,
         },
         "confidence": {
             "vot_valid_count": valid_count,
@@ -213,6 +344,9 @@ def _build_user_feedback(result: CompareResult) -> Dict[str, Any]:
                 if stop_count > 0 and valid_count < max(2, stop_count // 2)
                 else "medium"
             ),
+            "coda_weakened_count": coda_weakened,
+            "coda_dropped_count": coda_dropped,
+            "coda_uncertain_count": coda_uncertain,
         },
     }
 
@@ -300,12 +434,38 @@ def _print_vot(ar):
               f"{_fmt_opt(pd.get('diff_ms')):>6}")
 
 
+def _print_coda(ar):
+    d = ar.details
+    note = d.get("note") or ""
+    print(
+        f"  codas analyzed: {d.get('valid_count', 0)}/{d.get('coda_count', 0)}"
+        f" | weakened={d.get('weakened_count', 0)} dropped={d.get('dropped_count', 0)}"
+        f" uncertain={d.get('uncertain_count', 0)}"
+        f"{('  — ' + note) if note else ''}"
+    )
+    if not ar.per_syllable:
+        return
+    print(
+        f"  {'char':>4} {'coda':>5} {'score':>6}  "
+        f"{'gt_decay':>8} {'sm_decay':>8} {'status':>10}"
+    )
+    for ps in ar.per_syllable:
+        pd = ps.details
+        print(
+            f"  {ps.char:>4} {str(pd.get('coda_char', '?')):>5} {ps.score:>6.3f}  "
+            f"{_fmt_opt(pd.get('gt_decay_ratio'), '.2f'):>8} "
+            f"{_fmt_opt(pd.get('sample_decay_ratio'), '.2f'):>8} "
+            f"{str(pd.get('status', '')):>10}"
+        )
+
+
 _PRINTERS = {
     "formants": _print_formants,
     "mfcc_dtw": _print_mfcc_dtw,
     "pitch": _print_pitch,
     "energy": _print_energy,
     "vot": _print_vot,
+    "coda": _print_coda,
 }
 
 
@@ -330,6 +490,29 @@ if __name__ == "__main__":
         action="store_true",
         help="MFA 정렬 실패 시 fallback 하지 않고 바로 종료",
     )
+    parser.add_argument(
+        "--no-trim-silence",
+        action="store_true",
+        help="앞/뒤 무음 trim 전처리를 비활성화",
+    )
+    parser.add_argument(
+        "--trim-db",
+        type=float,
+        default=35.0,
+        help="무음 trim threshold (peak 대비 dB, 기본: 35)",
+    )
+    parser.add_argument(
+        "--target-rms-dbfs",
+        type=float,
+        default=-24.0,
+        help="RMS 정규화 목표 dBFS (기본: -24)",
+    )
+    parser.add_argument(
+        "--overall-trim-ratio",
+        type=float,
+        default=0.15,
+        help="overall 점수 robust trimmed mean 비율 (기본: 0.15)",
+    )
     args = parser.parse_args()
 
     result = compare(
@@ -339,6 +522,10 @@ if __name__ == "__main__":
         align_backend=args.align_backend,
         mfa_textgrid_dir=args.mfa_textgrid_dir,
         fail_on_mfa_error=args.fail_on_mfa_error,
+        trim_silence=not args.no_trim_silence,
+        trim_db=args.trim_db,
+        target_rms_dbfs=args.target_rms_dbfs,
+        overall_trim_ratio=args.overall_trim_ratio,
     )
     print(f"\n=== Overall: {result.overall_score:.3f} ===\n")
     print(

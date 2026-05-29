@@ -131,6 +131,15 @@ def _f(value: float) -> Optional[float]:
     return None if np.isnan(value) else float(value)
 
 
+def _nucleus_center_frame(span) -> int:
+    """자모 분할 정보가 있으면 nucleus 중심, 없으면 음절 중심 사용."""
+    if getattr(span, "nucleus", None):
+        s, e = span.nucleus
+        if s is not None and e is not None and e >= s:
+            return (s + e) // 2
+    return span.center_frame
+
+
 def analyze(
     gt_audio: torch.Tensor,
     sample_audio: torch.Tensor,
@@ -142,8 +151,10 @@ def analyze(
     per_syllable = []
 
     for gt_span, sm_span in zip(gt_alignment.spans, sample_alignment.spans):
-        gt_peak = find_energy_peak_sample(gt_audio, gt_span.center_frame)
-        sm_peak = find_energy_peak_sample(sample_audio, sm_span.center_frame)
+        gt_anchor = _nucleus_center_frame(gt_span)
+        sm_anchor = _nucleus_center_frame(sm_span)
+        gt_peak = find_energy_peak_sample(gt_audio, gt_anchor)
+        sm_peak = find_energy_peak_sample(sample_audio, sm_anchor)
         gt_seg = extract_window_at_sample(gt_audio, gt_peak, half_width_ms)
         sm_seg = extract_window_at_sample(sample_audio, sm_peak, half_width_ms)
 
@@ -158,6 +169,8 @@ def analyze(
                 score=score,
                 details={
                     "vowel": _get_vowel(gt_span.char),
+                    "gt_anchor_frame": gt_anchor,
+                    "sample_anchor_frame": sm_anchor,
                     "gt_f1": _f(gt_f1),
                     "gt_f2": _f(gt_f2),
                     "gt_f3": _f(gt_f3),
@@ -178,6 +191,6 @@ def analyze(
         details={
             "window_ms": half_width_ms * 2,
             "metric": "Bark-space distance of (F1,F2), score=exp(-d/2)",
-            "robustness": "energy-peak recenter + sliding-window median + F1/F2/F3 range check",
+            "robustness": "nucleus-centered anchor + energy-peak recenter + sliding-window median + F1/F2/F3 range check",
         },
     )

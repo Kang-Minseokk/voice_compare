@@ -1,21 +1,1329 @@
 {
   "root": "/home/capstoneserver1/soyoon/voice_compare",
+  "real_dir": "/home/capstoneserver1/soyoon/voice_compare/hospital_real_audio",
+  "ref_dir": "/home/capstoneserver1/soyoon/voice_compare/hospital_ref_audio",
   "align_backend": "wav2vec2",
+  "preprocess": {
+    "trim_silence": true,
+    "trim_db": 35.0,
+    "target_rms_dbfs": -24.0,
+    "overall_trim_ratio": 0.15
+  },
   "job_count": 28,
   "success_count": 28,
   "precheck_errors": [],
   "runtime_errors": [],
+  "repeat_report": {
+    "group_count": 28,
+    "repeat_group_count": 0,
+    "single_group_count": 28,
+    "summary": {
+      "mean_repeat_count": 0.0,
+      "repeat_overall_std_mean": 0.0
+    },
+    "groups": [
+      {
+        "person_idx": "1",
+        "ref_idx": "1",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_1-1_real.wav"
+        ],
+        "overall": {
+          "mean": 0.399,
+          "std": 0.0,
+          "min": 0.399,
+          "max": 0.399
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.743,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.316,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.313,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.395,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.57,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "1",
+        "ref_idx": "2",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_1-2_real.wav"
+        ],
+        "overall": {
+          "mean": 0.363,
+          "std": 0.0,
+          "min": 0.363,
+          "max": 0.363
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.328,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.327,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.404,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.391,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.445,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "1",
+        "ref_idx": "3",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_1-3_real.wav"
+        ],
+        "overall": {
+          "mean": 0.387,
+          "std": 0.0,
+          "min": 0.387,
+          "max": 0.387
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.584,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.259,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.366,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.382,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.541,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.165,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "1",
+        "ref_idx": "4",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_1-4_real.wav"
+        ],
+        "overall": {
+          "mean": 0.298,
+          "std": 0.0,
+          "min": 0.298,
+          "max": 0.298
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.775,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.361,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.219,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.39,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.221,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "2",
+        "ref_idx": "1",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_2-1_real.wav"
+        ],
+        "overall": {
+          "mean": 0.483,
+          "std": 0.0,
+          "min": 0.483,
+          "max": 0.483
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.597,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.4,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.323,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.393,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.541,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.66,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "2",
+        "ref_idx": "2",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_2-2_real.wav"
+        ],
+        "overall": {
+          "mean": 0.404,
+          "std": 0.0,
+          "min": 0.404,
+          "max": 0.404
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.4,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.408,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.389,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.407,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.576,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.401,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "2",
+        "ref_idx": "3",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_2-3_real.wav"
+        ],
+        "overall": {
+          "mean": 0.504,
+          "std": 0.0,
+          "min": 0.504,
+          "max": 0.504
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.71,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.246,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.464,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.401,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.563,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.586,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "2",
+        "ref_idx": "4",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_2-4_real.wav"
+        ],
+        "overall": {
+          "mean": 0.295,
+          "std": 0.0,
+          "min": 0.295,
+          "max": 0.295
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.432,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.548,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.149,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.389,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.212,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "3",
+        "ref_idx": "1",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_3-1_real.wav"
+        ],
+        "overall": {
+          "mean": 0.475,
+          "std": 0.0,
+          "min": 0.475,
+          "max": 0.475
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.876,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.27,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.378,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.386,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.315,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.819,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "3",
+        "ref_idx": "2",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_3-2_real.wav"
+        ],
+        "overall": {
+          "mean": 0.402,
+          "std": 0.0,
+          "min": 0.402,
+          "max": 0.402
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.326,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.408,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.369,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.399,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.432,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.641,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "3",
+        "ref_idx": "3",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_3-3_real.wav"
+        ],
+        "overall": {
+          "mean": 0.513,
+          "std": 0.0,
+          "min": 0.513,
+          "max": 0.513
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.615,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.157,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.42,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.394,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.623,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.642,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "3",
+        "ref_idx": "4",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_3-4_real.wav"
+        ],
+        "overall": {
+          "mean": 0.277,
+          "std": 0.0,
+          "min": 0.277,
+          "max": 0.277
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.527,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.438,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.241,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.387,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.041,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "4",
+        "ref_idx": "1",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_4-1_real.wav"
+        ],
+        "overall": {
+          "mean": 0.441,
+          "std": 0.0,
+          "min": 0.441,
+          "max": 0.441
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.709,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.433,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.385,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.396,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.549,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.353,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "4",
+        "ref_idx": "2",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_4-2_real.wav"
+        ],
+        "overall": {
+          "mean": 0.382,
+          "std": 0.0,
+          "min": 0.382,
+          "max": 0.382
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.333,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.535,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.275,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.396,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.521,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.241,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "4",
+        "ref_idx": "3",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_4-3_real.wav"
+        ],
+        "overall": {
+          "mean": 0.495,
+          "std": 0.0,
+          "min": 0.495,
+          "max": 0.495
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.694,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.335,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.448,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.408,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.618,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.507,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "4",
+        "ref_idx": "4",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_4-4_real.wav"
+        ],
+        "overall": {
+          "mean": 0.335,
+          "std": 0.0,
+          "min": 0.335,
+          "max": 0.335
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.545,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.396,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.283,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.397,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.265,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "5",
+        "ref_idx": "1",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_5-1_real.wav"
+        ],
+        "overall": {
+          "mean": 0.388,
+          "std": 0.0,
+          "min": 0.388,
+          "max": 0.388
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.643,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.231,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.361,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.387,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.574,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "5",
+        "ref_idx": "2",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_5-2_real.wav"
+        ],
+        "overall": {
+          "mean": 0.361,
+          "std": 0.0,
+          "min": 0.361,
+          "max": 0.361
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.278,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.387,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.398,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.382,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.454,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "5",
+        "ref_idx": "3",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_5-3_real.wav"
+        ],
+        "overall": {
+          "mean": 0.383,
+          "std": 0.0,
+          "min": 0.383,
+          "max": 0.383
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.599,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.214,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.364,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.385,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.568,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "5",
+        "ref_idx": "4",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_5-4_real.wav"
+        ],
+        "overall": {
+          "mean": 0.435,
+          "std": 0.0,
+          "min": 0.435,
+          "max": 0.435
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.502,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.522,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.318,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.399,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.727,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "6",
+        "ref_idx": "1",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_6-1_real.wav"
+        ],
+        "overall": {
+          "mean": 0.486,
+          "std": 0.0,
+          "min": 0.486,
+          "max": 0.486
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.611,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.305,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.404,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.412,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.517,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.758,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "6",
+        "ref_idx": "2",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_6-2_real.wav"
+        ],
+        "overall": {
+          "mean": 0.422,
+          "std": 0.0,
+          "min": 0.422,
+          "max": 0.422
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.37,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.361,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.291,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.408,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.549,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.679,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "6",
+        "ref_idx": "3",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_6-3_real.wav"
+        ],
+        "overall": {
+          "mean": 0.466,
+          "std": 0.0,
+          "min": 0.466,
+          "max": 0.466
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.595,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.205,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.396,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.386,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.682,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.489,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "6",
+        "ref_idx": "4",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_6-4_real.wav"
+        ],
+        "overall": {
+          "mean": 0.32,
+          "std": 0.0,
+          "min": 0.32,
+          "max": 0.32
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.584,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.378,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.208,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.399,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.294,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "7",
+        "ref_idx": "1",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_7-1_real.wav"
+        ],
+        "overall": {
+          "mean": 0.483,
+          "std": 0.0,
+          "min": 0.483,
+          "max": 0.483
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.741,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.323,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.367,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.395,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.61,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.56,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "7",
+        "ref_idx": "2",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_7-2_real.wav"
+        ],
+        "overall": {
+          "mean": 0.404,
+          "std": 0.0,
+          "min": 0.404,
+          "max": 0.404
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.396,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.427,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.345,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.383,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.546,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.41,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "7",
+        "ref_idx": "3",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_7-3_real.wav"
+        ],
+        "overall": {
+          "mean": 0.508,
+          "std": 0.0,
+          "min": 0.508,
+          "max": 0.508
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.599,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.243,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.444,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.399,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.591,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.639,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      },
+      {
+        "person_idx": "7",
+        "ref_idx": "4",
+        "repeat_count": 1,
+        "real_files": [
+          "hospital_7-4_real.wav"
+        ],
+        "overall": {
+          "mean": 0.284,
+          "std": 0.0,
+          "min": 0.284,
+          "max": 0.284
+        },
+        "analyzers": {
+          "coda": {
+            "mean": 0.602,
+            "std": 0.0,
+            "count": 1
+          },
+          "energy": {
+            "mean": 0.322,
+            "std": 0.0,
+            "count": 1
+          },
+          "formants": {
+            "mean": 0.237,
+            "std": 0.0,
+            "count": 1
+          },
+          "mfcc_dtw": {
+            "mean": 0.404,
+            "std": 0.0,
+            "count": 1
+          },
+          "pitch": {
+            "mean": 0.173,
+            "std": 0.0,
+            "count": 1
+          },
+          "vot": {
+            "mean": 0.0,
+            "std": 0.0,
+            "count": 1
+          }
+        }
+      }
+    ]
+  },
   "results": [
     {
       "real_file": "hospital_1-1_real.wav",
       "ref_file": "hospital_1_ref.wav",
-      "overall_score": 0.389,
+      "overall_score": 0.399,
       "analyzers": {
-        "formants": 0.282,
-        "mfcc_dtw": 0.4,
-        "pitch": 0.524,
-        "energy": 0.008,
-        "vot": 0.734
+        "formants": 0.313,
+        "mfcc_dtw": 0.395,
+        "pitch": 0.57,
+        "energy": 0.316,
+        "vot": 0.0,
+        "coda": 0.743
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -33,36 +1341,51 @@
           "confidence": "medium"
         },
         "diagnosis": [
-          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다."
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
-          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요."
+        ],
+        "targeted_tips": [
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '요' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '많' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '많'의 받침 'ㄶ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.389,
-          "formants": 0.282,
-          "mfcc_dtw": 0.4,
-          "pitch": 0.524,
-          "energy": 0.008,
-          "vot": 0.734
+          "overall": 0.399,
+          "formants": 0.313,
+          "mfcc_dtw": 0.395,
+          "pitch": 0.57,
+          "energy": 0.316,
+          "vot": 0.0,
+          "coda": 0.743
         },
         "confidence": {
-          "vot_valid_count": 5,
+          "vot_valid_count": 0,
           "vot_stop_count": 9,
-          "vot_confidence": "medium"
+          "vot_confidence": "low",
+          "coda_weakened_count": 1,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_1-2_real.wav",
       "ref_file": "hospital_2_ref.wav",
-      "overall_score": 0.392,
+      "overall_score": 0.363,
       "analyzers": {
-        "formants": 0.375,
-        "mfcc_dtw": 0.397,
-        "pitch": 0.463,
-        "energy": 0.029,
-        "vot": 0.696
+        "formants": 0.404,
+        "mfcc_dtw": 0.391,
+        "pitch": 0.445,
+        "energy": 0.327,
+        "vot": 0.0,
+        "coda": 0.328
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -73,43 +1396,61 @@
         ]
       },
       "feedback": {
-        "summary": "전체 발음은 나쁘지 않습니다. 낮은 점수 부분만 천천히 고치면 됩니다.",
+        "summary": "말의 높낮이와 소리의 세기가 기준과 다릅니다. 먼저 말의 흐름을 고치면 좋습니다.",
         "alignment": {
           "requested_backend": "wav2vec2",
           "used_backend": "wav2vec2",
           "confidence": "medium"
         },
         "diagnosis": [
-          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다."
+          "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
-          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+          "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
+          "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '래' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '찮' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '금'의 받침 'ㅁ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '혹'의 받침 'ㄱ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요."
         ],
         "scores": {
-          "overall": 0.392,
-          "formants": 0.375,
-          "mfcc_dtw": 0.397,
-          "pitch": 0.463,
-          "energy": 0.029,
-          "vot": 0.696
+          "overall": 0.363,
+          "formants": 0.404,
+          "mfcc_dtw": 0.391,
+          "pitch": 0.445,
+          "energy": 0.327,
+          "vot": 0.0,
+          "coda": 0.328
         },
         "confidence": {
-          "vot_valid_count": 5,
+          "vot_valid_count": 0,
           "vot_stop_count": 9,
-          "vot_confidence": "medium"
+          "vot_confidence": "low",
+          "coda_weakened_count": 4,
+          "coda_dropped_count": 2,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_1-3_real.wav",
       "ref_file": "hospital_3_ref.wav",
-      "overall_score": 0.327,
+      "overall_score": 0.387,
       "analyzers": {
-        "formants": 0.303,
-        "mfcc_dtw": 0.381,
-        "pitch": 0.556,
-        "energy": 0.011,
-        "vot": 0.383
+        "formants": 0.366,
+        "mfcc_dtw": 0.382,
+        "pitch": 0.541,
+        "energy": 0.259,
+        "vot": 0.165,
+        "coda": 0.584
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -128,36 +1469,52 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다."
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
-          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '사' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '합' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '감'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '꼭'의 받침 'ㄱ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.327,
-          "formants": 0.303,
-          "mfcc_dtw": 0.381,
-          "pitch": 0.556,
-          "energy": 0.011,
-          "vot": 0.383
+          "overall": 0.387,
+          "formants": 0.366,
+          "mfcc_dtw": 0.382,
+          "pitch": 0.541,
+          "energy": 0.259,
+          "vot": 0.165,
+          "coda": 0.584
         },
         "confidence": {
-          "vot_valid_count": 5,
+          "vot_valid_count": 1,
           "vot_stop_count": 11,
-          "vot_confidence": "medium"
+          "vot_confidence": "low",
+          "coda_weakened_count": 2,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_1-4_real.wav",
       "ref_file": "hospital_4_ref.wav",
-      "overall_score": 0.194,
+      "overall_score": 0.298,
       "analyzers": {
-        "formants": 0.177,
+        "formants": 0.219,
         "mfcc_dtw": 0.39,
-        "pitch": 0.236,
-        "energy": 0.0,
-        "vot": 0.165
+        "pitch": 0.221,
+        "energy": 0.361,
+        "vot": 0.0,
+        "coda": 0.775
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -185,31 +1542,40 @@
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
           "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
         ],
+        "targeted_tips": [
+          "'감사합니다.'에서 '다' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '감' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요."
+        ],
         "scores": {
-          "overall": 0.194,
-          "formants": 0.177,
+          "overall": 0.298,
+          "formants": 0.219,
           "mfcc_dtw": 0.39,
-          "pitch": 0.236,
-          "energy": 0.0,
-          "vot": 0.165
+          "pitch": 0.221,
+          "energy": 0.361,
+          "vot": 0.0,
+          "coda": 0.775
         },
         "confidence": {
-          "vot_valid_count": 1,
+          "vot_valid_count": 0,
           "vot_stop_count": 2,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 0,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_2-1_real.wav",
       "ref_file": "hospital_1_ref.wav",
-      "overall_score": 0.38,
+      "overall_score": 0.483,
       "analyzers": {
-        "formants": 0.311,
-        "mfcc_dtw": 0.398,
-        "pitch": 0.521,
-        "energy": 0.01,
-        "vot": 0.66
+        "formants": 0.323,
+        "mfcc_dtw": 0.393,
+        "pitch": 0.541,
+        "energy": 0.4,
+        "vot": 0.66,
+        "coda": 0.597
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -232,31 +1598,43 @@
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
         ],
+        "targeted_tips": [
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '많' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '아' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '도'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '부'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '같'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요."
+        ],
         "scores": {
-          "overall": 0.38,
-          "formants": 0.311,
-          "mfcc_dtw": 0.398,
-          "pitch": 0.521,
-          "energy": 0.01,
-          "vot": 0.66
+          "overall": 0.483,
+          "formants": 0.323,
+          "mfcc_dtw": 0.393,
+          "pitch": 0.541,
+          "energy": 0.4,
+          "vot": 0.66,
+          "coda": 0.597
         },
         "confidence": {
           "vot_valid_count": 5,
           "vot_stop_count": 9,
-          "vot_confidence": "medium"
+          "vot_confidence": "medium",
+          "coda_weakened_count": 0,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_2-2_real.wav",
       "ref_file": "hospital_2_ref.wav",
-      "overall_score": 0.336,
+      "overall_score": 0.404,
       "analyzers": {
-        "formants": 0.464,
-        "mfcc_dtw": 0.413,
-        "pitch": 0.578,
-        "energy": 0.021,
-        "vot": 0.206
+        "formants": 0.389,
+        "mfcc_dtw": 0.407,
+        "pitch": 0.576,
+        "energy": 0.408,
+        "vot": 0.401,
+        "coda": 0.4
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -275,37 +1653,49 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '기' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '시' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '기'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '증'의 받침 'ㅇ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '갈'의 받침 'ㄹ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.336,
-          "formants": 0.464,
-          "mfcc_dtw": 0.413,
-          "pitch": 0.578,
-          "energy": 0.021,
-          "vot": 0.206
+          "overall": 0.404,
+          "formants": 0.389,
+          "mfcc_dtw": 0.407,
+          "pitch": 0.576,
+          "energy": 0.408,
+          "vot": 0.401,
+          "coda": 0.4
         },
         "confidence": {
-          "vot_valid_count": 2,
+          "vot_valid_count": 4,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "medium",
+          "coda_weakened_count": 5,
+          "coda_dropped_count": 1,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_2-3_real.wav",
       "ref_file": "hospital_3_ref.wav",
-      "overall_score": 0.375,
+      "overall_score": 0.504,
       "analyzers": {
-        "formants": 0.421,
-        "mfcc_dtw": 0.4,
-        "pitch": 0.569,
-        "energy": 0.012,
-        "vot": 0.472
+        "formants": 0.464,
+        "mfcc_dtw": 0.401,
+        "pitch": 0.563,
+        "energy": 0.246,
+        "vot": 0.586,
+        "coda": 0.71
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -329,31 +1719,43 @@
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
         ],
+        "targeted_tips": [
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '시' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '요' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '감'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '그'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '뒤'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요."
+        ],
         "scores": {
-          "overall": 0.375,
-          "formants": 0.421,
-          "mfcc_dtw": 0.4,
-          "pitch": 0.569,
-          "energy": 0.012,
-          "vot": 0.472
+          "overall": 0.504,
+          "formants": 0.464,
+          "mfcc_dtw": 0.401,
+          "pitch": 0.563,
+          "energy": 0.246,
+          "vot": 0.586,
+          "coda": 0.71
         },
         "confidence": {
           "vot_valid_count": 7,
           "vot_stop_count": 11,
-          "vot_confidence": "medium"
+          "vot_confidence": "medium",
+          "coda_weakened_count": 0,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_2-4_real.wav",
       "ref_file": "hospital_4_ref.wav",
-      "overall_score": 0.353,
+      "overall_score": 0.295,
       "analyzers": {
         "formants": 0.149,
         "mfcc_dtw": 0.389,
-        "pitch": 0.228,
-        "energy": 0.0,
-        "vot": 1.0
+        "pitch": 0.212,
+        "energy": 0.548,
+        "vot": 0.0,
+        "coda": 0.432
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -373,39 +1775,51 @@
         "diagnosis": [
           "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
           "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다.'에서 '합' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '다' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.353,
+          "overall": 0.295,
           "formants": 0.149,
           "mfcc_dtw": 0.389,
-          "pitch": 0.228,
-          "energy": 0.0,
-          "vot": 1.0
+          "pitch": 0.212,
+          "energy": 0.548,
+          "vot": 0.0,
+          "coda": 0.432
         },
         "confidence": {
-          "vot_valid_count": 1,
+          "vot_valid_count": 0,
           "vot_stop_count": 2,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 1,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_3-1_real.wav",
       "ref_file": "hospital_1_ref.wav",
-      "overall_score": 0.379,
+      "overall_score": 0.475,
       "analyzers": {
-        "formants": 0.37,
-        "mfcc_dtw": 0.392,
-        "pitch": 0.31,
-        "energy": 0.002,
-        "vot": 0.819
+        "formants": 0.378,
+        "mfcc_dtw": 0.386,
+        "pitch": 0.315,
+        "energy": 0.27,
+        "vot": 0.819,
+        "coda": 0.876
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -433,31 +1847,40 @@
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
           "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
         ],
+        "targeted_tips": [
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '이' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '목' 소리가 둥글게 들리지 않습니다. 입술을 더 둥글게 모아서 발음해 보세요."
+        ],
         "scores": {
-          "overall": 0.379,
-          "formants": 0.37,
-          "mfcc_dtw": 0.392,
-          "pitch": 0.31,
-          "energy": 0.002,
-          "vot": 0.819
+          "overall": 0.475,
+          "formants": 0.378,
+          "mfcc_dtw": 0.386,
+          "pitch": 0.315,
+          "energy": 0.27,
+          "vot": 0.819,
+          "coda": 0.876
         },
         "confidence": {
           "vot_valid_count": 1,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 0,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_3-2_real.wav",
       "ref_file": "hospital_2_ref.wav",
-      "overall_score": 0.315,
+      "overall_score": 0.402,
       "analyzers": {
-        "formants": 0.299,
-        "mfcc_dtw": 0.402,
-        "pitch": 0.444,
-        "energy": 0.014,
-        "vot": 0.417
+        "formants": 0.369,
+        "mfcc_dtw": 0.399,
+        "pitch": 0.432,
+        "energy": 0.408,
+        "vot": 0.641,
+        "coda": 0.326
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -477,39 +1900,50 @@
         "diagnosis": [
           "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
           "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '시' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '금' 소리가 약해 보입니다. 입을 조금 더 벌리고 혀를 힘 빼고 발음해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '금'의 받침 'ㅁ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '증'의 받침 'ㅇ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요."
         ],
         "scores": {
-          "overall": 0.315,
-          "formants": 0.299,
-          "mfcc_dtw": 0.402,
-          "pitch": 0.444,
-          "energy": 0.014,
-          "vot": 0.417
+          "overall": 0.402,
+          "formants": 0.369,
+          "mfcc_dtw": 0.399,
+          "pitch": 0.432,
+          "energy": 0.408,
+          "vot": 0.641,
+          "coda": 0.326
         },
         "confidence": {
-          "vot_valid_count": 2,
+          "vot_valid_count": 4,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "medium",
+          "coda_weakened_count": 4,
+          "coda_dropped_count": 2,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_3-3_real.wav",
       "ref_file": "hospital_3_ref.wav",
-      "overall_score": 0.437,
+      "overall_score": 0.513,
       "analyzers": {
-        "formants": 0.397,
+        "formants": 0.42,
         "mfcc_dtw": 0.394,
-        "pitch": 0.61,
-        "energy": 0.027,
-        "vot": 0.756
+        "pitch": 0.623,
+        "energy": 0.157,
+        "vot": 0.642,
+        "coda": 0.615
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -529,37 +1963,51 @@
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
           "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '시' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '다' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '그'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '꼭'의 받침 'ㄱ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.437,
-          "formants": 0.397,
+          "overall": 0.513,
+          "formants": 0.42,
           "mfcc_dtw": 0.394,
-          "pitch": 0.61,
-          "energy": 0.027,
-          "vot": 0.756
+          "pitch": 0.623,
+          "energy": 0.157,
+          "vot": 0.642,
+          "coda": 0.615
         },
         "confidence": {
-          "vot_valid_count": 3,
+          "vot_valid_count": 4,
           "vot_stop_count": 11,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 2,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_3-4_real.wav",
       "ref_file": "hospital_4_ref.wav",
-      "overall_score": 0.133,
+      "overall_score": 0.277,
       "analyzers": {
-        "formants": 0.235,
+        "formants": 0.241,
         "mfcc_dtw": 0.387,
-        "pitch": 0.043,
-        "energy": 0.0,
-        "vot": 0.0
+        "pitch": 0.041,
+        "energy": 0.438,
+        "vot": 0.0,
+        "coda": 0.527
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -579,39 +2027,52 @@
         "diagnosis": [
           "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
           "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다.'에서 '합' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '다' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.133,
-          "formants": 0.235,
+          "overall": 0.277,
+          "formants": 0.241,
           "mfcc_dtw": 0.387,
-          "pitch": 0.043,
-          "energy": 0.0,
-          "vot": 0.0
+          "pitch": 0.041,
+          "energy": 0.438,
+          "vot": 0.0,
+          "coda": 0.527
         },
         "confidence": {
           "vot_valid_count": 0,
           "vot_stop_count": 2,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 1,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_4-1_real.wav",
       "ref_file": "hospital_1_ref.wav",
-      "overall_score": 0.358,
+      "overall_score": 0.441,
       "analyzers": {
-        "formants": 0.351,
-        "mfcc_dtw": 0.402,
-        "pitch": 0.555,
-        "energy": 0.031,
-        "vot": 0.451
+        "formants": 0.385,
+        "mfcc_dtw": 0.396,
+        "pitch": 0.549,
+        "energy": 0.433,
+        "vot": 0.353,
+        "coda": 0.709
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -630,37 +2091,45 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다."
         ],
         "coaching": [
-          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
+        ],
+        "targeted_tips": [
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '요' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '가' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요."
         ],
         "scores": {
-          "overall": 0.358,
-          "formants": 0.351,
-          "mfcc_dtw": 0.402,
-          "pitch": 0.555,
-          "energy": 0.031,
-          "vot": 0.451
+          "overall": 0.441,
+          "formants": 0.385,
+          "mfcc_dtw": 0.396,
+          "pitch": 0.549,
+          "energy": 0.433,
+          "vot": 0.353,
+          "coda": 0.709
         },
         "confidence": {
-          "vot_valid_count": 3,
+          "vot_valid_count": 4,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "medium",
+          "coda_weakened_count": 0,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_4-2_real.wav",
       "ref_file": "hospital_2_ref.wav",
-      "overall_score": 0.295,
+      "overall_score": 0.382,
       "analyzers": {
-        "formants": 0.282,
-        "mfcc_dtw": 0.402,
-        "pitch": 0.516,
-        "energy": 0.029,
-        "vot": 0.245
+        "formants": 0.275,
+        "mfcc_dtw": 0.396,
+        "pitch": 0.521,
+        "energy": 0.535,
+        "vot": 0.241,
+        "coda": 0.333
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -679,37 +2148,51 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '증' 소리가 약해 보입니다. 입을 조금 더 벌리고 혀를 힘 빼고 발음해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '이' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '혹'의 받침 'ㄱ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '증'의 받침 'ㅇ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요."
         ],
         "scores": {
-          "overall": 0.295,
-          "formants": 0.282,
-          "mfcc_dtw": 0.402,
-          "pitch": 0.516,
-          "energy": 0.029,
-          "vot": 0.245
+          "overall": 0.382,
+          "formants": 0.275,
+          "mfcc_dtw": 0.396,
+          "pitch": 0.521,
+          "energy": 0.535,
+          "vot": 0.241,
+          "coda": 0.333
         },
         "confidence": {
           "vot_valid_count": 2,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 3,
+          "coda_dropped_count": 2,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_4-3_real.wav",
       "ref_file": "hospital_3_ref.wav",
-      "overall_score": 0.418,
+      "overall_score": 0.495,
       "analyzers": {
-        "formants": 0.439,
+        "formants": 0.448,
         "mfcc_dtw": 0.408,
-        "pitch": 0.612,
-        "energy": 0.014,
-        "vot": 0.616
+        "pitch": 0.618,
+        "energy": 0.335,
+        "vot": 0.507,
+        "coda": 0.694
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -729,37 +2212,50 @@
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
           "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '시' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '야' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '그'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.418,
-          "formants": 0.439,
+          "overall": 0.495,
+          "formants": 0.448,
           "mfcc_dtw": 0.408,
-          "pitch": 0.612,
-          "energy": 0.014,
-          "vot": 0.616
+          "pitch": 0.618,
+          "energy": 0.335,
+          "vot": 0.507,
+          "coda": 0.694
         },
         "confidence": {
           "vot_valid_count": 4,
           "vot_stop_count": 11,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 1,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_4-4_real.wav",
       "ref_file": "hospital_4_ref.wav",
-      "overall_score": 0.194,
+      "overall_score": 0.335,
       "analyzers": {
         "formants": 0.283,
         "mfcc_dtw": 0.397,
-        "pitch": 0.289,
-        "energy": 0.0,
-        "vot": 0.0
+        "pitch": 0.265,
+        "energy": 0.396,
+        "vot": 0.0,
+        "coda": 0.545
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -779,39 +2275,51 @@
         "diagnosis": [
           "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
           "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다.'에서 '사' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '합' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.194,
+          "overall": 0.335,
           "formants": 0.283,
           "mfcc_dtw": 0.397,
-          "pitch": 0.289,
-          "energy": 0.0,
-          "vot": 0.0
+          "pitch": 0.265,
+          "energy": 0.396,
+          "vot": 0.0,
+          "coda": 0.545
         },
         "confidence": {
           "vot_valid_count": 0,
           "vot_stop_count": 2,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 1,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_5-1_real.wav",
       "ref_file": "hospital_1_ref.wav",
-      "overall_score": 0.418,
+      "overall_score": 0.388,
       "analyzers": {
-        "formants": 0.368,
-        "mfcc_dtw": 0.392,
-        "pitch": 0.532,
-        "energy": 0.023,
-        "vot": 0.774
+        "formants": 0.361,
+        "mfcc_dtw": 0.387,
+        "pitch": 0.574,
+        "energy": 0.231,
+        "vot": 0.0,
+        "coda": 0.643
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -830,37 +2338,47 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
           "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
           "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
         ],
+        "targeted_tips": [
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '부' 소리가 둥글게 들리지 않습니다. 입술을 더 둥글게 모아서 발음해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '부' 소리가 둥글게 들리지 않습니다. 입술을 더 둥글게 모아서 발음해 보세요."
+        ],
         "scores": {
-          "overall": 0.418,
-          "formants": 0.368,
-          "mfcc_dtw": 0.392,
-          "pitch": 0.532,
-          "energy": 0.023,
-          "vot": 0.774
+          "overall": 0.388,
+          "formants": 0.361,
+          "mfcc_dtw": 0.387,
+          "pitch": 0.574,
+          "energy": 0.231,
+          "vot": 0.0,
+          "coda": 0.643
         },
         "confidence": {
-          "vot_valid_count": 2,
+          "vot_valid_count": 0,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 0,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_5-2_real.wav",
       "ref_file": "hospital_2_ref.wav",
-      "overall_score": 0.247,
+      "overall_score": 0.361,
       "analyzers": {
-        "formants": 0.332,
-        "mfcc_dtw": 0.39,
-        "pitch": 0.471,
-        "energy": 0.002,
-        "vot": 0.041
+        "formants": 0.398,
+        "mfcc_dtw": 0.382,
+        "pitch": 0.454,
+        "energy": 0.387,
+        "vot": 0.0,
+        "coda": 0.278
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -879,37 +2397,50 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '침' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '요' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '금'의 받침 'ㅁ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '혹'의 받침 'ㄱ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요."
         ],
         "scores": {
-          "overall": 0.247,
-          "formants": 0.332,
-          "mfcc_dtw": 0.39,
-          "pitch": 0.471,
-          "energy": 0.002,
-          "vot": 0.041
+          "overall": 0.361,
+          "formants": 0.398,
+          "mfcc_dtw": 0.382,
+          "pitch": 0.454,
+          "energy": 0.387,
+          "vot": 0.0,
+          "coda": 0.278
         },
         "confidence": {
-          "vot_valid_count": 1,
+          "vot_valid_count": 0,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 3,
+          "coda_dropped_count": 3,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_5-3_real.wav",
       "ref_file": "hospital_3_ref.wav",
-      "overall_score": 0.363,
+      "overall_score": 0.383,
       "analyzers": {
-        "formants": 0.332,
-        "mfcc_dtw": 0.384,
-        "pitch": 0.581,
-        "energy": 0.031,
-        "vot": 0.488
+        "formants": 0.364,
+        "mfcc_dtw": 0.385,
+        "pitch": 0.568,
+        "energy": 0.214,
+        "vot": 0.0,
+        "coda": 0.599
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -929,37 +2460,49 @@
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
           "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '흘' 소리가 약해 보입니다. 입을 조금 더 벌리고 혀를 힘 빼고 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '요' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '꼭'의 받침 'ㄱ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.363,
-          "formants": 0.332,
-          "mfcc_dtw": 0.384,
-          "pitch": 0.581,
-          "energy": 0.031,
-          "vot": 0.488
+          "overall": 0.383,
+          "formants": 0.364,
+          "mfcc_dtw": 0.385,
+          "pitch": 0.568,
+          "energy": 0.214,
+          "vot": 0.0,
+          "coda": 0.599
         },
         "confidence": {
-          "vot_valid_count": 4,
+          "vot_valid_count": 0,
           "vot_stop_count": 11,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 1,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_5-4_real.wav",
       "ref_file": "hospital_4_ref.wav",
-      "overall_score": 0.293,
+      "overall_score": 0.435,
       "analyzers": {
-        "formants": 0.325,
+        "formants": 0.318,
         "mfcc_dtw": 0.399,
-        "pitch": 0.74,
-        "energy": 0.0,
-        "vot": 0.0
+        "pitch": 0.727,
+        "energy": 0.522,
+        "vot": 0.0,
+        "coda": 0.502
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -978,37 +2521,50 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다.'에서 '사' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '합' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.293,
-          "formants": 0.325,
+          "overall": 0.435,
+          "formants": 0.318,
           "mfcc_dtw": 0.399,
-          "pitch": 0.74,
-          "energy": 0.0,
-          "vot": 0.0
+          "pitch": 0.727,
+          "energy": 0.522,
+          "vot": 0.0,
+          "coda": 0.502
         },
         "confidence": {
           "vot_valid_count": 0,
           "vot_stop_count": 2,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 1,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_6-1_real.wav",
       "ref_file": "hospital_1_ref.wav",
-      "overall_score": 0.399,
+      "overall_score": 0.486,
       "analyzers": {
-        "formants": 0.418,
-        "mfcc_dtw": 0.416,
-        "pitch": 0.462,
-        "energy": 0.002,
-        "vot": 0.698
+        "formants": 0.404,
+        "mfcc_dtw": 0.412,
+        "pitch": 0.517,
+        "energy": 0.305,
+        "vot": 0.758,
+        "coda": 0.611
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -1026,36 +2582,47 @@
           "confidence": "medium"
         },
         "diagnosis": [
-          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다."
+          "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요."
         ],
+        "targeted_tips": [
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '은' 소리가 약해 보입니다. 입을 조금 더 벌리고 혀를 힘 빼고 발음해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '것' 소리가 약해 보입니다. 입을 조금 더 벌리고 혀를 힘 빼고 발음해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '부'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요."
+        ],
         "scores": {
-          "overall": 0.399,
-          "formants": 0.418,
-          "mfcc_dtw": 0.416,
-          "pitch": 0.462,
-          "energy": 0.002,
-          "vot": 0.698
+          "overall": 0.486,
+          "formants": 0.404,
+          "mfcc_dtw": 0.412,
+          "pitch": 0.517,
+          "energy": 0.305,
+          "vot": 0.758,
+          "coda": 0.611
         },
         "confidence": {
-          "vot_valid_count": 4,
+          "vot_valid_count": 5,
           "vot_stop_count": 9,
-          "vot_confidence": "medium"
+          "vot_confidence": "medium",
+          "coda_weakened_count": 0,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_6-2_real.wav",
       "ref_file": "hospital_2_ref.wav",
-      "overall_score": 0.246,
+      "overall_score": 0.422,
       "analyzers": {
-        "formants": 0.267,
-        "mfcc_dtw": 0.412,
-        "pitch": 0.519,
-        "energy": 0.033,
-        "vot": 0.0
+        "formants": 0.291,
+        "mfcc_dtw": 0.408,
+        "pitch": 0.549,
+        "energy": 0.361,
+        "vot": 0.679,
+        "coda": 0.37
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -1074,37 +2641,52 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '증' 소리가 약해 보입니다. 입을 조금 더 벌리고 혀를 힘 빼고 발음해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '이' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '침'는 숨을 조금 더 실어서, 거센소리 느낌이 나게 발음해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '금'의 받침 'ㅁ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '혹'의 받침 'ㄱ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요."
         ],
         "scores": {
-          "overall": 0.246,
-          "formants": 0.267,
-          "mfcc_dtw": 0.412,
-          "pitch": 0.519,
-          "energy": 0.033,
-          "vot": 0.0
+          "overall": 0.422,
+          "formants": 0.291,
+          "mfcc_dtw": 0.408,
+          "pitch": 0.549,
+          "energy": 0.361,
+          "vot": 0.679,
+          "coda": 0.37
         },
         "confidence": {
-          "vot_valid_count": 0,
+          "vot_valid_count": 3,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 3,
+          "coda_dropped_count": 3,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_6-3_real.wav",
       "ref_file": "hospital_3_ref.wav",
-      "overall_score": 0.361,
+      "overall_score": 0.466,
       "analyzers": {
-        "formants": 0.39,
-        "mfcc_dtw": 0.385,
+        "formants": 0.396,
+        "mfcc_dtw": 0.386,
         "pitch": 0.682,
-        "energy": 0.045,
-        "vot": 0.301
+        "energy": 0.205,
+        "vot": 0.489,
+        "coda": 0.595
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -1124,37 +2706,51 @@
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
           "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '서' 소리가 약해 보입니다. 입을 조금 더 벌리고 혀를 힘 빼고 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '디' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '그'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '꼭'의 받침 'ㄱ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.361,
-          "formants": 0.39,
-          "mfcc_dtw": 0.385,
+          "overall": 0.466,
+          "formants": 0.396,
+          "mfcc_dtw": 0.386,
           "pitch": 0.682,
-          "energy": 0.045,
-          "vot": 0.301
+          "energy": 0.205,
+          "vot": 0.489,
+          "coda": 0.595
         },
         "confidence": {
-          "vot_valid_count": 1,
+          "vot_valid_count": 4,
           "vot_stop_count": 11,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 2,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_6-4_real.wav",
       "ref_file": "hospital_4_ref.wav",
-      "overall_score": 0.186,
+      "overall_score": 0.32,
       "analyzers": {
-        "formants": 0.212,
-        "mfcc_dtw": 0.396,
-        "pitch": 0.322,
-        "energy": 0.0,
-        "vot": 0.0
+        "formants": 0.208,
+        "mfcc_dtw": 0.399,
+        "pitch": 0.294,
+        "energy": 0.378,
+        "vot": 0.0,
+        "coda": 0.584
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -1174,39 +2770,52 @@
         "diagnosis": [
           "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
           "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다.'에서 '사' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '니' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.186,
-          "formants": 0.212,
-          "mfcc_dtw": 0.396,
-          "pitch": 0.322,
-          "energy": 0.0,
-          "vot": 0.0
+          "overall": 0.32,
+          "formants": 0.208,
+          "mfcc_dtw": 0.399,
+          "pitch": 0.294,
+          "energy": 0.378,
+          "vot": 0.0,
+          "coda": 0.584
         },
         "confidence": {
           "vot_valid_count": 0,
           "vot_stop_count": 2,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 1,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_7-1_real.wav",
       "ref_file": "hospital_1_ref.wav",
-      "overall_score": 0.42,
+      "overall_score": 0.483,
       "analyzers": {
-        "formants": 0.42,
-        "mfcc_dtw": 0.401,
-        "pitch": 0.536,
-        "energy": 0.036,
-        "vot": 0.707
+        "formants": 0.367,
+        "mfcc_dtw": 0.395,
+        "pitch": 0.61,
+        "energy": 0.323,
+        "vot": 0.56,
+        "coda": 0.741
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -1225,37 +2834,48 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
           "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
           "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
         ],
+        "targeted_tips": [
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '이' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '무' 소리가 둥글게 들리지 않습니다. 입술을 더 둥글게 모아서 발음해 보세요.",
+          "'어제부터 머리가 너무 아파요. 목도 많이 부은 것 같아요.'에서 '부'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요."
+        ],
         "scores": {
-          "overall": 0.42,
-          "formants": 0.42,
-          "mfcc_dtw": 0.401,
-          "pitch": 0.536,
-          "energy": 0.036,
-          "vot": 0.707
+          "overall": 0.483,
+          "formants": 0.367,
+          "mfcc_dtw": 0.395,
+          "pitch": 0.61,
+          "energy": 0.323,
+          "vot": 0.56,
+          "coda": 0.741
         },
         "confidence": {
-          "vot_valid_count": 3,
+          "vot_valid_count": 2,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 0,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_7-2_real.wav",
       "ref_file": "hospital_2_ref.wav",
-      "overall_score": 0.309,
+      "overall_score": 0.404,
       "analyzers": {
-        "formants": 0.29,
-        "mfcc_dtw": 0.389,
-        "pitch": 0.539,
-        "energy": 0.034,
-        "vot": 0.292
+        "formants": 0.345,
+        "mfcc_dtw": 0.383,
+        "pitch": 0.546,
+        "energy": 0.427,
+        "vot": 0.41,
+        "coda": 0.396
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -1274,37 +2894,51 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "문장 끝부분의 말투(올라감/내려감)가 기준과 다릅니다.",
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 있는 음절은 끝소리를 너무 빨리 풀지 말고, 짧게 남겨 보세요."
+        ],
+        "targeted_tips": [
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '이' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '오' 소리가 둥글게 들리지 않습니다. 입술을 더 둥글게 모아서 발음해 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '금'의 받침 'ㅁ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요.",
+          "'기침은 조금 하는데, 속은 괜찮아요. 혹시 증상이 오래갈까요?'에서 '혹'의 받침 'ㄱ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요."
         ],
         "scores": {
-          "overall": 0.309,
-          "formants": 0.29,
-          "mfcc_dtw": 0.389,
-          "pitch": 0.539,
-          "energy": 0.034,
-          "vot": 0.292
+          "overall": 0.404,
+          "formants": 0.345,
+          "mfcc_dtw": 0.383,
+          "pitch": 0.546,
+          "energy": 0.427,
+          "vot": 0.41,
+          "coda": 0.396
         },
         "confidence": {
-          "vot_valid_count": 2,
+          "vot_valid_count": 3,
           "vot_stop_count": 9,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 3,
+          "coda_dropped_count": 2,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_7-3_real.wav",
       "ref_file": "hospital_3_ref.wav",
-      "overall_score": 0.415,
+      "overall_score": 0.508,
       "analyzers": {
-        "formants": 0.424,
+        "formants": 0.444,
         "mfcc_dtw": 0.399,
-        "pitch": 0.602,
-        "energy": 0.013,
-        "vot": 0.639
+        "pitch": 0.591,
+        "energy": 0.243,
+        "vot": 0.639,
+        "coda": 0.599
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -1323,37 +2957,51 @@
         },
         "diagnosis": [
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '시' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '니' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '감'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '그'를 너무 세게 내지 말고, 조금 더 부드럽게 발음해 보세요.",
+          "'감사합니다. 그런데 약은 어디서 받아요? 그리고 사흘 뒤에 꼭 다시 와야 하나요?'에서 '감'의 받침 'ㅁ' 소리가 거의 들리지 않습니다. 끝소리를 조금 더 남겨서 끊어 보세요."
         ],
         "scores": {
-          "overall": 0.415,
-          "formants": 0.424,
+          "overall": 0.508,
+          "formants": 0.444,
           "mfcc_dtw": 0.399,
-          "pitch": 0.602,
-          "energy": 0.013,
-          "vot": 0.639
+          "pitch": 0.591,
+          "energy": 0.243,
+          "vot": 0.639,
+          "coda": 0.599
         },
         "confidence": {
           "vot_valid_count": 3,
           "vot_stop_count": 11,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 0,
+          "coda_dropped_count": 1,
+          "coda_uncertain_count": 0
         }
       }
     },
     {
       "real_file": "hospital_7-4_real.wav",
       "ref_file": "hospital_4_ref.wav",
-      "overall_score": 0.175,
+      "overall_score": 0.284,
       "analyzers": {
         "formants": 0.237,
-        "mfcc_dtw": 0.403,
-        "pitch": 0.233,
-        "energy": 0.0,
-        "vot": 0.0
+        "mfcc_dtw": 0.404,
+        "pitch": 0.173,
+        "energy": 0.322,
+        "vot": 0.0,
+        "coda": 0.602
       },
       "alignment": {
         "requested_backend": "wav2vec2",
@@ -1373,26 +3021,37 @@
         "diagnosis": [
           "문장 전체의 높낮이와 소리 크기 흐름이 기준 음성과 다릅니다.",
           "몇몇 글자 소리(특히 모음)가 기준과 다르게 들립니다.",
-          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다."
+          "자음 비교는 이번 녹음에서 측정 가능한 구간이 적어서 정확도가 낮습니다.",
+          "단어 끝소리(받침)에서 약해지는 구간이 보입니다."
         ],
         "coaching": [
           "문장 뒤쪽에서 목소리가 너무 내려가지 않게, 높낮이를 조금 더 살려서 말해보세요.",
           "힘이 약한 부분은 소리를 조금 더 또렷하고 힘 있게 내보세요.",
           "점수가 낮은 글자만 골라서, 입모양을 크게 하고 천천히 반복해 보세요.",
-          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다."
+          "자음은 긴 문장보다 짧은 단어(예: 가/까/카)를 반복하면 더 잘 고칠 수 있습니다.",
+          "받침이 약해지는 음절을 먼저 골라서, 끝소리를 또렷하게 마무리해 보세요."
+        ],
+        "targeted_tips": [
+          "'감사합니다.'에서 '다' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '사' 발음이 기준과 다릅니다. 그 음절만 천천히 3~5번 반복해 보세요.",
+          "'감사합니다.'에서 '감'의 받침 'ㅁ' 소리가 약합니다. 끝소리를 짧고 또렷하게 마무리해 보세요."
         ],
         "scores": {
-          "overall": 0.175,
+          "overall": 0.284,
           "formants": 0.237,
-          "mfcc_dtw": 0.403,
-          "pitch": 0.233,
-          "energy": 0.0,
-          "vot": 0.0
+          "mfcc_dtw": 0.404,
+          "pitch": 0.173,
+          "energy": 0.322,
+          "vot": 0.0,
+          "coda": 0.602
         },
         "confidence": {
           "vot_valid_count": 0,
           "vot_stop_count": 2,
-          "vot_confidence": "low"
+          "vot_confidence": "low",
+          "coda_weakened_count": 1,
+          "coda_dropped_count": 0,
+          "coda_uncertain_count": 0
         }
       }
     }

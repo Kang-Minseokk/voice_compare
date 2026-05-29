@@ -1,0 +1,1299 @@
+{
+  "group_count": 28,
+  "repeat_group_count": 0,
+  "single_group_count": 28,
+  "summary": {
+    "mean_repeat_count": 0.0,
+    "repeat_overall_std_mean": 0.0
+  },
+  "groups": [
+    {
+      "person_idx": "1",
+      "ref_idx": "1",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_1-1_real.wav"
+      ],
+      "overall": {
+        "mean": 0.399,
+        "std": 0.0,
+        "min": 0.399,
+        "max": 0.399
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.743,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.316,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.313,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.395,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.57,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "1",
+      "ref_idx": "2",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_1-2_real.wav"
+      ],
+      "overall": {
+        "mean": 0.363,
+        "std": 0.0,
+        "min": 0.363,
+        "max": 0.363
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.328,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.327,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.404,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.391,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.445,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "1",
+      "ref_idx": "3",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_1-3_real.wav"
+      ],
+      "overall": {
+        "mean": 0.387,
+        "std": 0.0,
+        "min": 0.387,
+        "max": 0.387
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.584,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.259,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.366,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.382,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.541,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.165,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "1",
+      "ref_idx": "4",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_1-4_real.wav"
+      ],
+      "overall": {
+        "mean": 0.298,
+        "std": 0.0,
+        "min": 0.298,
+        "max": 0.298
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.775,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.361,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.219,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.39,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.221,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "2",
+      "ref_idx": "1",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_2-1_real.wav"
+      ],
+      "overall": {
+        "mean": 0.483,
+        "std": 0.0,
+        "min": 0.483,
+        "max": 0.483
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.597,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.4,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.323,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.393,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.541,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.66,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "2",
+      "ref_idx": "2",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_2-2_real.wav"
+      ],
+      "overall": {
+        "mean": 0.404,
+        "std": 0.0,
+        "min": 0.404,
+        "max": 0.404
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.4,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.408,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.389,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.407,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.576,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.401,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "2",
+      "ref_idx": "3",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_2-3_real.wav"
+      ],
+      "overall": {
+        "mean": 0.504,
+        "std": 0.0,
+        "min": 0.504,
+        "max": 0.504
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.71,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.246,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.464,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.401,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.563,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.586,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "2",
+      "ref_idx": "4",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_2-4_real.wav"
+      ],
+      "overall": {
+        "mean": 0.295,
+        "std": 0.0,
+        "min": 0.295,
+        "max": 0.295
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.432,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.548,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.149,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.389,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.212,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "3",
+      "ref_idx": "1",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_3-1_real.wav"
+      ],
+      "overall": {
+        "mean": 0.475,
+        "std": 0.0,
+        "min": 0.475,
+        "max": 0.475
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.876,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.27,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.378,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.386,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.315,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.819,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "3",
+      "ref_idx": "2",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_3-2_real.wav"
+      ],
+      "overall": {
+        "mean": 0.402,
+        "std": 0.0,
+        "min": 0.402,
+        "max": 0.402
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.326,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.408,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.369,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.399,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.432,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.641,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "3",
+      "ref_idx": "3",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_3-3_real.wav"
+      ],
+      "overall": {
+        "mean": 0.513,
+        "std": 0.0,
+        "min": 0.513,
+        "max": 0.513
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.615,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.157,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.42,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.394,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.623,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.642,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "3",
+      "ref_idx": "4",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_3-4_real.wav"
+      ],
+      "overall": {
+        "mean": 0.277,
+        "std": 0.0,
+        "min": 0.277,
+        "max": 0.277
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.527,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.438,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.241,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.387,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.041,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "4",
+      "ref_idx": "1",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_4-1_real.wav"
+      ],
+      "overall": {
+        "mean": 0.441,
+        "std": 0.0,
+        "min": 0.441,
+        "max": 0.441
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.709,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.433,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.385,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.396,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.549,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.353,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "4",
+      "ref_idx": "2",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_4-2_real.wav"
+      ],
+      "overall": {
+        "mean": 0.382,
+        "std": 0.0,
+        "min": 0.382,
+        "max": 0.382
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.333,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.535,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.275,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.396,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.521,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.241,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "4",
+      "ref_idx": "3",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_4-3_real.wav"
+      ],
+      "overall": {
+        "mean": 0.495,
+        "std": 0.0,
+        "min": 0.495,
+        "max": 0.495
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.694,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.335,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.448,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.408,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.618,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.507,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "4",
+      "ref_idx": "4",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_4-4_real.wav"
+      ],
+      "overall": {
+        "mean": 0.335,
+        "std": 0.0,
+        "min": 0.335,
+        "max": 0.335
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.545,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.396,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.283,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.397,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.265,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "5",
+      "ref_idx": "1",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_5-1_real.wav"
+      ],
+      "overall": {
+        "mean": 0.388,
+        "std": 0.0,
+        "min": 0.388,
+        "max": 0.388
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.643,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.231,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.361,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.387,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.574,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "5",
+      "ref_idx": "2",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_5-2_real.wav"
+      ],
+      "overall": {
+        "mean": 0.361,
+        "std": 0.0,
+        "min": 0.361,
+        "max": 0.361
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.278,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.387,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.398,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.382,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.454,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "5",
+      "ref_idx": "3",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_5-3_real.wav"
+      ],
+      "overall": {
+        "mean": 0.383,
+        "std": 0.0,
+        "min": 0.383,
+        "max": 0.383
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.599,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.214,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.364,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.385,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.568,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "5",
+      "ref_idx": "4",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_5-4_real.wav"
+      ],
+      "overall": {
+        "mean": 0.435,
+        "std": 0.0,
+        "min": 0.435,
+        "max": 0.435
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.502,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.522,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.318,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.399,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.727,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "6",
+      "ref_idx": "1",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_6-1_real.wav"
+      ],
+      "overall": {
+        "mean": 0.486,
+        "std": 0.0,
+        "min": 0.486,
+        "max": 0.486
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.611,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.305,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.404,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.412,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.517,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.758,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "6",
+      "ref_idx": "2",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_6-2_real.wav"
+      ],
+      "overall": {
+        "mean": 0.422,
+        "std": 0.0,
+        "min": 0.422,
+        "max": 0.422
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.37,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.361,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.291,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.408,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.549,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.679,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "6",
+      "ref_idx": "3",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_6-3_real.wav"
+      ],
+      "overall": {
+        "mean": 0.466,
+        "std": 0.0,
+        "min": 0.466,
+        "max": 0.466
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.595,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.205,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.396,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.386,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.682,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.489,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "6",
+      "ref_idx": "4",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_6-4_real.wav"
+      ],
+      "overall": {
+        "mean": 0.32,
+        "std": 0.0,
+        "min": 0.32,
+        "max": 0.32
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.584,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.378,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.208,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.399,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.294,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "7",
+      "ref_idx": "1",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_7-1_real.wav"
+      ],
+      "overall": {
+        "mean": 0.483,
+        "std": 0.0,
+        "min": 0.483,
+        "max": 0.483
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.741,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.323,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.367,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.395,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.61,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.56,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "7",
+      "ref_idx": "2",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_7-2_real.wav"
+      ],
+      "overall": {
+        "mean": 0.404,
+        "std": 0.0,
+        "min": 0.404,
+        "max": 0.404
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.396,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.427,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.345,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.383,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.546,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.41,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "7",
+      "ref_idx": "3",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_7-3_real.wav"
+      ],
+      "overall": {
+        "mean": 0.508,
+        "std": 0.0,
+        "min": 0.508,
+        "max": 0.508
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.599,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.243,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.444,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.399,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.591,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.639,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    },
+    {
+      "person_idx": "7",
+      "ref_idx": "4",
+      "repeat_count": 1,
+      "real_files": [
+        "hospital_7-4_real.wav"
+      ],
+      "overall": {
+        "mean": 0.284,
+        "std": 0.0,
+        "min": 0.284,
+        "max": 0.284
+      },
+      "analyzers": {
+        "coda": {
+          "mean": 0.602,
+          "std": 0.0,
+          "count": 1
+        },
+        "energy": {
+          "mean": 0.322,
+          "std": 0.0,
+          "count": 1
+        },
+        "formants": {
+          "mean": 0.237,
+          "std": 0.0,
+          "count": 1
+        },
+        "mfcc_dtw": {
+          "mean": 0.404,
+          "std": 0.0,
+          "count": 1
+        },
+        "pitch": {
+          "mean": 0.173,
+          "std": 0.0,
+          "count": 1
+        },
+        "vot": {
+          "mean": 0.0,
+          "std": 0.0,
+          "count": 1
+        }
+      }
+    }
+  ]
+}

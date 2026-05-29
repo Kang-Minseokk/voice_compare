@@ -130,11 +130,25 @@ def _measure_vot(
     span: SyllableSpan,
     prev_end_sample: Optional[int],
 ) -> Optional[float]:
-    center = frame_to_sample(span.center_frame)
-    region_start = max(0, center - _ms_to_samples(LOOKBACK_MS))
+    # onset 중심 anchor (없으면 음절 중심 fallback)
+    if span.onset is not None:
+        onset_s, onset_e = span.onset
+        onset_center_frame = (onset_s + onset_e) // 2
+        onset_start_sample = frame_to_sample(onset_s)
+    else:
+        onset_center_frame = span.center_frame
+        onset_start_sample = frame_to_sample(span.start_frame)
+
+    center = frame_to_sample(onset_center_frame)
+    region_start = max(0, onset_start_sample - _ms_to_samples(LOOKBACK_MS))
     if prev_end_sample is not None:
         region_start = max(region_start, prev_end_sample)
-    region_end = min(audio.size(0), center + _ms_to_samples(LOOKAHEAD_MS))
+
+    if span.nucleus is not None:
+        nucleus_end_sample = frame_to_sample(span.nucleus[1] + 1)
+        region_end = min(audio.size(0), nucleus_end_sample + _ms_to_samples(LOOKAHEAD_MS))
+    else:
+        region_end = min(audio.size(0), center + _ms_to_samples(LOOKAHEAD_MS))
     region = audio[region_start:region_end].numpy().astype(np.float64)
 
     if region.size < _ms_to_samples(30):
@@ -206,6 +220,8 @@ def analyze(
                 score=score,
                 details={
                     "initial": _get_initial(gt_span.char),
+                    "gt_onset": gt_span.onset,
+                    "sample_onset": sm_span.onset,
                     "gt_vot_ms": gt_vot,
                     "sample_vot_ms": sm_vot,
                     "diff_ms": diff,
@@ -232,6 +248,7 @@ def analyze(
         per_syllable=per_syllable,
         details={
             "metric": f"|VOT_gt - VOT_sample| ms, score=exp(-d/{SCORE_SCALE})",
+            "anchor": "onset-centered (fallback: syllable center)",
             "stop_count": len(per_syllable),
             "valid_count": len(valid_pairs),
             "note": note,

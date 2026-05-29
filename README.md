@@ -4,7 +4,7 @@
 
 ## 핵심 철학
 
-> 단일 종합 점수가 아니라, **음향학이 분리해둔 5개 차원을 각각 측정**해서 고려인 학습자가 어려워하는 정확한 오류 유형을 음절 단위로 진단한다.
+> 단일 종합 점수가 아니라, **음향학이 분리해둔 6개 차원을 각각 측정**해서 고려인 학습자가 어려워하는 정확한 오류 유형을 음절 단위로 진단한다.
 
 기존 발음 평가 도구의 한계:
 - 종합 점수 70점만 알려줌 → 사용자는 *무엇을* 고쳐야 할지 모름
@@ -28,12 +28,13 @@
   → gt와 sample 각각에서 음절별 시간 위치 추출
   │
   ▼
-[Step 2] 같은 음절끼리 5축 음향 분석
+[Step 2] 같은 음절끼리 6축 음향 분석
   ├─ (1) Formants (F1, F2)       — 모음 정체성
   ├─ (2) MFCC + DTW              — 스펙트럼 envelope
   ├─ (3) Pitch (F0)              — 피치/억양
   ├─ (4) Energy (RMS, dB)        — 강세/dynamics
-  └─ (5) VOT (Voice Onset Time)  — 자음 변별
+  ├─ (5) VOT (Voice Onset Time)  — 자음 변별
+  └─ (6) Coda (받침)             — 종성 약화/탈락
   │
   ▼
 출력: 분석기별 점수 + 음절별 진단 + alignment 시간 정보
@@ -85,7 +86,7 @@ CTC는 학습 과정에서 blank 토큰을 많이 쓰도록 유도되는 결과,
 
 ---
 
-## Step 2 — 5축 음향 분석
+## Step 2 — 6축 음향 분석
 
 각 분석기는 **다른 음향학적 차원을 봄**. 점수 합산이 아니라 *차원별 진단*이 목적.
 
@@ -311,7 +312,30 @@ def analyze(gt_audio, sample_audio, gt_alignment, sample_alignment, text)
 
 ---
 
-## 5축 조합의 의미
+### (6) Coda (받침) — 종성 약화/탈락 경향
+
+**위치**: [`analyzers/coda.py`](analyzers/coda.py)
+
+#### 음향학적 근거
+
+- 종성 안정성은 **발화 말미 에너지 유지**와 **종성 구간 길이**, **voicing residue(ZCR 기반)**로 근사 가능
+- 완전한 음운 규칙 엔진이 아니라, 학습자 음성에서 반복되는 **받침 약화/탈락 경향**을 조기에 탐지
+
+#### 설계 포인트
+
+1. **3개 휴리스틱 결합**: `RMS decay ratio` + `duration ratio` + `voicing residue`
+2. **fallback 분할 지원**: 정렬에서 nucleus/coda 분할 정보가 없을 때 프레임 비율로 안전한 대체 분할
+3. **coda별 임계치 튜닝**: `ㄱ/ㅁ/ㅇ`의 drop/weak ratio를 분리해 과탐지 완화
+4. **uncertain 상태 명시**: 너무 짧거나 신뢰도 낮은 구간은 점수만 억지로 내지 않고 `uncertain`으로 반환
+
+#### 진단 가치
+
+- *"받침이 거의 탈락(dropped)했습니다"* / *"약화(weakened)되었습니다"*를 음절 단위로 제시
+- 사용자 피드백(`targeted_tips`)과 연결되어 어느 음절의 어떤 받침을 먼저 고칠지 바로 안내 가능
+
+---
+
+## 6축 조합의 의미
 
 ### 차원 매트릭스
 
@@ -320,6 +344,7 @@ def analyze(gt_audio, sample_audio, gt_alignment, sample_alignment, text)
 | 분절 - 모음 quality | Formants | ㅓ/ㅗ, ㅡ/ㅜ 모음 substitution |
 | 분절 - 스펙트럼 envelope | MFCC+DTW | 음소 일반적 정확도, 안정적 backbone |
 | 분절 - 자음 변별 | VOT | 평음/경음/격음 (단어 task) |
+| 분절 - 종성 안정성 | Coda | 받침 약화/탈락 경향 |
 | 초분절 - 피치 | Pitch (F0) | 의문문 억양, 강세 위치 |
 | 초분절 - 강세 | Energy (dB) | 강세 강도, dynamic range |
 
@@ -331,9 +356,10 @@ def analyze(gt_audio, sample_audio, gt_alignment, sample_alignment, text)
 | 분절 OK / 초분절 ↓ | Prosody 문제 | "발음은 정확한데 억양이 어색합니다" |
 | Formants ↓ / MFCC OK | 모음만 문제 | "특정 모음에 집중하세요" |
 | VOT ↓ / 다른 분절 OK | 자음 카테고리 오류 | "ㄱ을 ㅋ처럼 강하게 발음하셨네요" |
+| Coda ↓ / 나머지 분절 OK | 받침 약화/탈락 | "끝소리를 짧고 또렷하게 남겨보세요" |
 | Tail slope: gt 상승 / sample 하강 | 의문문 상승 누락 | "끝을 올려서 질문 형태로 발음해보세요" |
 
-→ **단일 점수 시스템은 절대 못 하는 영역**. 5개 차원이 분리되어 있어서 각각 사용자 행동에 매핑됨.
+→ **단일 점수 시스템은 절대 못 하는 영역**. 6개 차원이 분리되어 있어서 각각 사용자 행동에 매핑됨.
 
 ### 고려인 학습자 오류 카탈로그 매핑
 
@@ -346,9 +372,10 @@ def analyze(gt_audio, sample_audio, gt_alignment, sample_alignment, text)
 | 3 | 의문문 끝 안 올림 | **Pitch tail slope** |
 | 4 | 러시아어식 강세 위치 전이 | **Energy + Pitch (alignment-locked)** |
 | 5 | 전반적 monotone | **Energy dynamic range + Pitch contour** |
-| 6 | 종성 ㄹ trill | (Phase 후속) |
+| 6 | 받침 약화/탈락 | **Coda** |
+| 7 | 종성 ㄹ trill | (Phase 후속) |
 
-6개 중 5개 직접 커버.
+7개 중 6개 직접 커버.
 
 ---
 
@@ -356,7 +383,7 @@ def analyze(gt_audio, sample_audio, gt_alignment, sample_alignment, text)
 
 1. **VOT의 connected speech 한계** — 단어/음절 단위 task 추가 시 효용 최대화
 2. **음소(자모) 단위 alignment 미구현** — 현재 음절 단위. 초성/중성/종성 분리는 후속 과제
-3. **종성 분석 부재** — ㄹ trill, 받침 처리 등 한국어 특유 패턴
+3. **종성 세부 음운 규칙 확장 필요** — 현재는 약화/탈락 탐지 중심, ㄹ trill/교체 규칙은 후속
 4. **참고 발화 의존** — 원어민 녹음 대비 비교. 절대 표준 미보유
 5. **단일 화자 비교의 본질적 노이즈** — 화자 정규화로 완화했지만 완전 제거는 어려움
 
@@ -370,6 +397,8 @@ def analyze(gt_audio, sample_audio, gt_alignment, sample_alignment, text)
 .
 ├── compare.py             # CLI orchestrator — compare(gt, sample, text) 함수가 핵심 API
 ├── api.py                 # FastAPI HTTP wrapper
+├── batch_compare_wav.py   # 폴더 단위 병렬 비교 + 결과 JSON 생성
+├── view_feedback.py       # Streamlit 피드백 대시보드
 ├── alignment.py           # wav2vec2 로딩 + Viterbi forced alignment
 ├── audio_utils.py         # 오디오 I/O, 윈도우 추출, energy peak 찾기
 ├── analyzers/
@@ -378,7 +407,8 @@ def analyze(gt_audio, sample_audio, gt_alignment, sample_alignment, text)
 │   ├── mfcc_dtw.py        # (2) MFCC + DTW
 │   ├── pitch.py           # (3) F0 (피치)
 │   ├── energy.py          # (4) RMS (강세)
-│   └── vot.py             # (5) VOT (자음 변별)
+│   ├── vot.py             # (5) VOT (자음 변별)
+│   └── coda.py            # (6) Coda (받침 약화/탈락)
 ├── hospital_0_ref.wav     # 샘플 — 원어민 녹음
 ├── hospital_0_real.wav    # 샘플 — 학습자 녹음 (의도적 prosody 왜곡)
 └── README.md
@@ -395,17 +425,30 @@ def analyze(gt_audio, sample_audio, gt_alignment, sample_alignment, text)
 ```
 torch==2.4.1 torchaudio==2.4.1 transformers==4.45.2
 librosa soundfile fastapi uvicorn python-multipart
+streamlit pandas plotly
 ```
 
 모델: `kresnik/wav2vec2-large-xlsr-korean` (첫 실행 시 ~1.2GB 자동 다운로드).
 
-### CLI
+### CLI (단일 쌍 비교)
 
 ```
 python compare.py
 ```
 
 샘플 파일과 텍스트가 `compare.py`에 하드코딩되어 있음. 결과는 분석기별 점수 + 음절별 진단을 표 형태로 출력.
+
+자주 쓰는 옵션 예시:
+```
+python compare.py \
+  --gt-audio hospital_0_ref.wav \
+  --sample-audio hospital_0_real.wav \
+  --text "자꾸 배가 아프고 속이 쓰려요" \
+  --align-backend wav2vec2
+```
+
+- `--align-backend mfa` 선택 시 MFA TextGrid를 우선 사용
+- MFA 실패 시 기본값으로 `wav2vec2`로 자동 fallback (`--fail-on-mfa-error`로 중단 모드 가능)
 
 ### API
 
@@ -440,7 +483,8 @@ multipart/form-data:
     "pitch": {...},
     "energy": {...},
     "mfcc_dtw": {...},
-    "vot": {...}
+    "vot": {...},
+    "coda": {...}
   },
   "alignment": {
     "gt":     [{"char": "자", "start_sec": 0.90, "end_sec": 0.96}, ...],
@@ -449,8 +493,72 @@ multipart/form-data:
 }
 ```
 
+### 배치 실행 + 반복 리포트
+
+1) 가상환경 활성화
+```
+source .venv/bin/activate
+```
+
+2) 배치 실행
+```
+python batch_compare_wav.py \
+  --root . \
+  --text-map-json ref_texts.json \
+  --align-backend wav2vec2 \
+  --max-workers 2 \
+  --output-json batch_compare_results.json
+```
+
+3) 반복 리포트까지 함께 생성하려면
+```
+python batch_compare_wav.py \
+  --root . \
+  --text-map-json ref_texts.json \
+  --output-json batch_compare_results.json \
+  --repeat-report-json repeat_recording_report.json
+```
+
+- `batch_compare_results.json`: 샘플별 점수/피드백 전체 결과
+- `repeat_recording_report.json`: 화자+문장 그룹 반복 녹음 통계(mean/std)
+
+#### 배치 실행 전 환경 체크 (권장)
+
+`batch_compare_wav.py`는 내부적으로 `compare.py -> alignment.py`를 import하므로
+`torch`와 `torchaudio`가 같은 Python 환경에 설치되어 있어야 한다.
+
+```
+python -c "import torch, torchaudio; print('torch', torch.__version__)"
+```
+
+- 위 명령이 실패하면 해당 conda 환경에서 먼저 의존성을 설치
+- 예: `python -m pip install torch torchaudio`
+
+참고:
+- 프로젝트 루트에 `batch_compare_results.json`이 이미 있더라도, 그것은 **과거 실행 산출물**일 수 있음
+- 따라서 현재 환경 재실행 가능 여부는 위 import 체크로 확인하는 것을 권장
+
+### 음조 분석 피드백 대시보드 (Streamlit)
+
+1) 의존성 설치 (실행 환경에서 1회)
+```
+python -m pip install streamlit pandas plotly
+```
+
+2) 대시보드 실행
+```
+python -m streamlit run view_feedback.py
+```
+
+3) 브라우저에서 열기
+- 기본 URL: `http://localhost:8501`
+
+참고:
+- `streamlit: command not found`가 나오면 `python -m streamlit ...` 형태로 실행
+- `No module named 'plotly'`가 나오면 현재 환경에 `plotly`를 다시 설치
+
 ---
 
 ## 한 줄 요약
 
-> **음향학이 분리해둔 5개 차원을 각각 측정해서 고려인 학습자가 어려워하는 정확한 오류 유형(모음 substitution, 자음 변별, prosody 전이)을 음절 단위 진단으로 짚어주는 시스템. 각 차원은 명확한 phonetic 의미를 갖고, 실측을 통해 발견한 한계는 honest failure로 처리해 가짜 결과를 만들지 않는다.**
+> **음향학이 분리해둔 6개 차원을 각각 측정해서 고려인 학습자가 어려워하는 정확한 오류 유형(모음 substitution, 자음 변별, 받침 약화/탈락, prosody 전이)을 음절 단위 진단으로 짚어주는 시스템. 각 차원은 명확한 phonetic 의미를 갖고, 실측을 통해 발견한 한계는 honest failure로 처리해 가짜 결과를 만들지 않는다.**

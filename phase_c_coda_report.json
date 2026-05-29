@@ -1,0 +1,105 @@
+{
+  "job_count": 28,
+  "coda_token_count": 182,
+  "fallback_counts": {
+    "both_fallback": 173,
+    "one_side_fallback": 9,
+    "none_fallback": 0
+  },
+  "status_counts": {
+    "ok": 125,
+    "weakened": 34,
+    "dropped": 23,
+    "uncertain": 0,
+    "not_applicable": 0
+  },
+  "status_rates": {
+    "ok": 0.6868,
+    "weakened": 0.1868,
+    "dropped": 0.1264,
+    "uncertain": 0.0,
+    "not_applicable": 0.0
+  },
+  "coda_summary": {
+    "ㄱ": {
+      "count": 35,
+      "avg_score": 0.4034,
+      "weakened_rate": 0.2857,
+      "dropped_rate": 0.1714,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 4.465
+    },
+    "ㄶ": {
+      "count": 14,
+      "avg_score": 0.6456,
+      "weakened_rate": 0.3571,
+      "dropped_rate": 0.0,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 0.628
+    },
+    "ㄴ": {
+      "count": 42,
+      "avg_score": 0.7386,
+      "weakened_rate": 0.0238,
+      "dropped_rate": 0.0,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 0.3884
+    },
+    "ㅅ": {
+      "count": 7,
+      "avg_score": 0.5219,
+      "weakened_rate": 0.0,
+      "dropped_rate": 0.0,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 2.2674
+    },
+    "ㅌ": {
+      "count": 7,
+      "avg_score": 0.5844,
+      "weakened_rate": 0.0,
+      "dropped_rate": 0.0,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 0.9254
+    },
+    "ㅁ": {
+      "count": 28,
+      "avg_score": 0.1566,
+      "weakened_rate": 0.3214,
+      "dropped_rate": 0.4286,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 3.753
+    },
+    "ㅇ": {
+      "count": 14,
+      "avg_score": 0.2505,
+      "weakened_rate": 0.1429,
+      "dropped_rate": 0.3571,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 2.9138
+    },
+    "ㄹ": {
+      "count": 14,
+      "avg_score": 0.3886,
+      "weakened_rate": 0.5,
+      "dropped_rate": 0.0,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 10.0317
+    },
+    "ㅂ": {
+      "count": 14,
+      "avg_score": 0.7163,
+      "weakened_rate": 0.0,
+      "dropped_rate": 0.0,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 0.4201
+    },
+    "ㄷ": {
+      "count": 7,
+      "avg_score": 0.7459,
+      "weakened_rate": 0.0,
+      "dropped_rate": 0.0,
+      "uncertain_rate": 0.0,
+      "avg_decay_diff": 0.3835
+    }
+  }
+}

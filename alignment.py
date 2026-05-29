@@ -26,6 +26,9 @@ class SyllableSpan:
     char: str
     start_frame: int
     end_frame: int
+    onset: Optional[Tuple[int, int]] = None
+    nucleus: Optional[Tuple[int, int]] = None
+    coda: Optional[Tuple[int, int]] = None
 
     @property
     def center_frame(self) -> int:
@@ -41,6 +44,82 @@ class Alignment:
 
 _model = None
 _processor = None
+
+
+def _has_coda(char: str) -> bool:
+    if len(char) != 1:
+        return False
+    code = ord(char) - 0xAC00
+    if code < 0 or code >= 11172:
+        return False
+    jong = code % 28
+    return jong != 0
+
+
+def _heuristic_split_onset_nucleus_coda(
+    char: str, start_frame: int, end_frame: int
+) -> Tuple[Optional[Tuple[int, int]], Optional[Tuple[int, int]], Optional[Tuple[int, int]]]:
+    """음절 span을 onset/nucleus/coda로 휴리스틱 분할.
+
+    - 종성이 있으면 onset:nucleus:coda ~= 25:50:25
+    - 종성이 없으면 onset:nucleus ~= 35:65
+    - 매우 짧은 span은 핵심 구간(nucleus) 위주로 안전하게 축약
+    """
+    if end_frame < start_frame:
+        return None, None, None
+    total = end_frame - start_frame + 1
+    if total == 1:
+        single = (start_frame, end_frame)
+        return single, single, None
+
+    has_coda = _has_coda(char)
+    if not has_coda:
+        onset_len = max(1, int(round(total * 0.35)))
+        onset_len = min(onset_len, total - 1)
+        nucleus_len = total - onset_len
+        o_s = start_frame
+        o_e = o_s + onset_len - 1
+        n_s = o_e + 1
+        n_e = end_frame
+        return (o_s, o_e), (n_s, n_e), None
+
+    # 종성이 있는 경우
+    if total < 3:
+        onset_len = 1
+        nucleus_len = total - onset_len
+        coda_len = 0
+    else:
+        onset_len = max(1, int(round(total * 0.25)))
+        coda_len = max(1, int(round(total * 0.25)))
+        nucleus_len = total - onset_len - coda_len
+        if nucleus_len < 1:
+            # nucleus 최소 1프레임 보장
+            if onset_len >= coda_len and onset_len > 1:
+                onset_len -= 1
+            elif coda_len > 1:
+                coda_len -= 1
+            nucleus_len = total - onset_len - coda_len
+
+    o_s = start_frame
+    o_e = o_s + onset_len - 1
+    n_s = o_e + 1
+    n_e = n_s + nucleus_len - 1
+    c_s = n_e + 1
+    c_e = end_frame
+    coda = (c_s, c_e) if c_s <= c_e else None
+    return (o_s, o_e), (n_s, n_e), coda
+
+
+def _make_syllable_span(char: str, start_frame: int, end_frame: int) -> SyllableSpan:
+    onset, nucleus, coda = _heuristic_split_onset_nucleus_coda(char, start_frame, end_frame)
+    return SyllableSpan(
+        char=char,
+        start_frame=start_frame,
+        end_frame=end_frame,
+        onset=onset,
+        nucleus=nucleus,
+        coda=coda,
+    )
 
 
 def load_model():
@@ -110,7 +189,7 @@ def align(audio: torch.Tensor, text: str) -> Alignment:
     for (ch, _), (s, e) in zip(tokens, raw_spans):
         if ch == delim:
             continue
-        spans.append(SyllableSpan(char=ch, start_frame=s, end_frame=e))
+        spans.append(_make_syllable_span(ch, s, e))
 
     return Alignment(spans=spans, hidden=hidden, log_probs=log_probs)
 
@@ -161,7 +240,7 @@ def _split_word_to_syllable_spans(
         s = start_frame + int(i * duration / len(chars))
         e = start_frame + int((i + 1) * duration / len(chars)) - 1
         e = max(s, e)
-        spans.append(SyllableSpan(char=ch, start_frame=s, end_frame=e))
+        spans.append(_make_syllable_span(ch, s, e))
     return spans
 
 
@@ -187,13 +266,7 @@ def alignment_from_textgrid(textgrid_path: str, text: Optional[str] = None) -> A
         adjusted = []
         for i in range(n):
             sp = spans[i]
-            adjusted.append(
-                SyllableSpan(
-                    char=target_chars[i],
-                    start_frame=sp.start_frame,
-                    end_frame=sp.end_frame,
-                )
-            )
+            adjusted.append(_make_syllable_span(target_chars[i], sp.start_frame, sp.end_frame))
         spans = adjusted
 
     # Hidden/logits는 TextGrid 변환 경로에서는 사용하지 않으므로 empty tensor로 채움.
