@@ -545,17 +545,36 @@ python -c "import torch, torchaudio; print('torch', torch.__version__)"
 python -m pip install streamlit pandas plotly
 ```
 
-2) 대시보드 실행
+2) 배치 결과 생성
+```
+python batch_compare_wav.py \
+  --root . \
+  --text-map-json ref_texts.json \
+  --output-json batch_compare_results.json
+```
+
+배치 결과에는 대시보드에서 문장 내 오류 위치를 표시할 수 있도록 `text` 필드를 함께 저장한다. 기존에 생성된 `batch_compare_results.json`에는 `text`가 없을 수 있으므로, 문장 강조 기능을 정확히 보려면 배치 비교를 다시 실행한다.
+
+3) 대시보드 실행
 ```
 python -m streamlit run view_feedback.py
 ```
 
-3) 브라우저에서 열기
+4) 브라우저에서 열기
 - 기본 URL: `http://localhost:8501`
+
+#### 대시보드 표시 내용
+
+- 전체 점수와 분석기별 점수를 0~1이 아니라 **100점 만점**으로 표시한다.
+- `targeted_tips`에서 교정 대상 음절을 추출하고, 해당 음절을 문장 안에서 붉은색으로 강조한다.
+- "어디를 고치면 좋나요?" 영역에서 문장 내 위치 강조와 세부 targeted tip을 함께 보여준다.
+- 러시아어가 모국어인 학습자를 위해 러시아어 피드백 문장을 생성하고, 브라우저의 `ru-RU` Web Speech API로 TTS를 재생한다.
+- JSON에 `feedback.ru_tts`, `feedback.russian_tts`, 또는 최상위 `ru_tts` 필드가 있으면 그 문장을 우선 사용한다. 없으면 점수와 교정 대상 음절을 기반으로 기본 러시아어 안내문을 생성한다.
 
 참고:
 - `streamlit: command not found`가 나오면 `python -m streamlit ...` 형태로 실행
 - `No module named 'plotly'`가 나오면 현재 환경에 `plotly`를 다시 설치
+- 러시아어 TTS는 브라우저 내장 음성 합성을 사용하므로, 실행 환경에 러시아어 음성이 설치되어 있지 않으면 기본 음성으로 재생될 수 있다.
 
 ---
 

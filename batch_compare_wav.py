@@ -68,6 +68,7 @@ def _run_one(
     return {
         "real_file": Path(real_path).name,
         "ref_file": Path(ref_path).name,
+        "text": text,
         "overall_score": round(result.overall_score, 3),
         "analyzers": analyzer_scores,
         "alignment": {
